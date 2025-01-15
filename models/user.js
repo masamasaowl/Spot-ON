@@ -1,0 +1,1 @@
+// schema for all the login details of the users
