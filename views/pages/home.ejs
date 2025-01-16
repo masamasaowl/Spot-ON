@@ -1,0 +1,21 @@
+<% layout("../layouts/boilerplate.ejs") %>
+
+<body>
+    <h1 class="montserra">Welcome to Spot On.</h1>
+
+    <div class="searchbar">
+        <input name="searchbar" type="text" placeholder="Search locations...">
+    </div>
+
+
+    <ul class="listOfSpaces">
+        <% for(let space of allSpaces ){ %>
+
+            <li>
+                <%= space.name %>
+            </li>
+        
+            <% } %> 
+    </ul>
+
+</body>
