@@ -1,16 +1,46 @@
 <% layout("../layouts/boilerplate.ejs") %>
 
 <body>
-    <h1 class="montserra">Welcome to Spot On.</h1>
+    <div class="heroSection">
+        <div class="headText">
+            <h1 class="welcome merriweather-regular">Discover the world's top designers
+            </h1>
 
-    <div >
-        <input class="searchbar" name="searchbar" type="text" placeholder="Search locations...">
+        </div>
+        <div class="bottomText">
+
+            <p class="poppins-regular">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ut, quos reprehenderit provident dolorem consectetur.
+            </p>
+        </div>
+    </div>
+    
+    <div class="searchArea">
+        <div class="where">
+            <p class="poppins-regular">Where to</p>
+            <input class="searchbar poppins-regular" name="searchbar" type="text" placeholder="Search destinations">
+
+            <!-- an empty list for the JS to filter search results -->
+            <ul class="listOfSpaces">
+               
+            </ul>
+        </div>
+
+        <div class="verticalLine"></div>
+
+        <div class="for">
+            <p class="poppins-regular">For</p>
+            <input class="timePeriod poppins-regular" name="timePeriod" type="text" placeholder="Time period">
+
+        </div>
+
+        <div class="searchIcon poppins-regular ">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            
+        </div>
+ 
     </div>
 
-
-    <ul class="listOfSpaces">
-        
-        
-    </ul>
-
+    <hr>
+    
 </body>

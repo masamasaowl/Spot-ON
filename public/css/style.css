@@ -1,10 +1,21 @@
 /* font */
-.montserrat{
-  font-family: "Montserrat", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+.poppins-regular {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
 }
+  
+.poppins-semibold {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+  
+.merriweather-regular {
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: normal;
+}  
 
 *{
     margin: 0;
@@ -23,4 +34,127 @@ body{
     display: none;
 }
 
-/* =============== home.ejs ============== */
+/* =============== navbar ============== */
+
+.navbar{
+    height: 90px;
+    width: 90%;
+    margin: auto;
+}
+.logo img{
+    width: 105px;
+    height: 45px;
+    background-size: cover;
+}
+.parkingChoice{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-right: 50px;
+}
+.parkIt{
+    margin-right: 15px;
+}
+.bookIt{
+    margin-left: 15px;
+}
+.parkIt, .bookIt{
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 110px;
+    background-color: #F7F7F7;
+}
+.parkIt:hover, .bookIt:hover{
+    background-color: rgba(229, 226, 226, 0.603);
+}
+
+.verticalLine {
+    width: 1px; 
+    background-color: #ccc; 
+    height: 70%; 
+    margin: auto;
+}
+
+/* ================ Home ==============*/
+.heroSection{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 45vh;
+    padding: 3rem ;
+}
+.heroSection h1{
+    text-align: center;
+    font-size: 3.7rem;
+}
+.heroSection p{
+    text-align: center;
+}
+.welcome{
+    margin-top: 5px;
+}
+.bottomText{
+    margin-top: 5px;
+}
+
+.searchArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 60px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+.where{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    padding: 1.4rem 2rem;
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+.for{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    padding: 1.4rem 2rem;
+    font-size: 0.85rem;
+}
+.where p,.for p{
+    margin: 0;
+}
+.searchbar, .timePeriod{
+    border: none;
+}
+.searchIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 50px;
+    border-radius:50% ;
+    background-color: #ffcc00;
+    margin-right: 10px;
+}
+.searchIcon{
+    color: #F7F7F7;
+    font-size: 1.2rem;
+}
+.searchIcon:hover{
+    background-color: #ebbc00;
+}
+
+
+/* ==================== JS classes ===================== */

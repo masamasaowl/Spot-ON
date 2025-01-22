@@ -1,6 +1,6 @@
 console.log("path is working");
 
-// =============== Home.ejs ==============
+// ================= Home =================
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -82,7 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!document.getElementById('search-container').contains(e.target)) {
             dropdown.classList.add('hidden');
         }
-      });
+    });
+
+
+
+    // ========================================
+
+    // functionality for styling
+    searchbar.addEventListener("click", () => {
+        let searchIcon = document.querySelector(".searchIcon");
+
+        searchIcon.append("Search");
+        
+        
+            
+        
+
+    });
+ 
+
 });
 
-// ==========================================
+
+
