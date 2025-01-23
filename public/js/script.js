@@ -41,7 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement("li");
     
             li.innerText = option.name; 
+
+            
+            // style the list
+            // the location dot icon
+            const i = document.createElement("i");
     
+            i.innerHTML = "<i></i>";
+            i.classList.add("fa-solid", "fa-location-dot");
+            // add it to the list
+            li.prepend(i);
+            
+            // styling for the suggestions
+            li.classList.add("poppins-regular","suggestionStyle");
+    
+    
+            
             // if an option is selected
                 li.addEventListener('click', () => {
                     searchbar.value = option.name; 
@@ -74,13 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
         // call to render the dropdown
         renderDropdown(filteredSpaces);
+
     });
     
     
     // if clicked outside the options disappear
     document.addEventListener('click', (e) => {
         if (!document.getElementById('search-container').contains(e.target)) {
-            dropdown.classList.add('hidden');
+            listOfSpaces[0].classList.add('hidden');
         }
     });
 
@@ -89,17 +105,92 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================================
 
     // functionality for styling
-    searchbar.addEventListener("click", () => {
-        let searchIcon = document.querySelector(".searchIcon");
+    let searchIcon = document.querySelector(".searchIcon");
+    let searchPanel = document.querySelector("#searchPanel");
+    let where = document.querySelector(".where");
 
+    // addition of search text with the searchIcon
+    searchbar.addEventListener("click", async() => {
+
+        // for search text
+        let nbsp = document.querySelector(".nbsp");
+        nbsp.classList.remove("hidden");
         searchIcon.append("Search");
+        searchIcon.classList.remove("searchIcon");
+        searchIcon.classList.add("searchIconContainer");
+
         
-        
-            
-        
+        // now an additional margin appears so to remove it 
+        let whereLayer = document.querySelector(".whereLayer");
+        whereLayer.style.margin = "0";
+
+        // add the styling of searchPanel
+        searchPanel.classList.add("searchResults");
+
+        // add default list when bar is clicked 
+        let defaultSuggestions = await fetchSpaces();
+    
+        // using map we store all the names in a variable 
+        const names = defaultSuggestions.map(space => space.name);
+        console.log(names);
+
+        // call showSuggestions function
+        showSuggestions(names);
 
     });
- 
+
+    // a function to showcase the default suggestions
+    function showSuggestions (suggestions){
+        // searchPanel.innerText = '';
+        
+        suggestions.forEach((suggestion) => {
+    
+            // create a list item
+            const li = document.createElement("li");
+            // store the suggestion
+            li.innerText = suggestion;
+
+            // the heading of the searches
+            let heading = document.querySelector("#suggestions");
+            heading.classList.remove("hidden");
+
+            // the location dot icon
+            const i = document.createElement("i");
+
+            i.innerHTML = "<i></i>";
+            i.classList.add("fa-solid", "fa-location-dot");
+            // add it to the list
+            li.prepend(i);
+            
+            // styling for the suggestions
+            li.classList.add("poppins-regular","suggestionStyle");
+
+            // add the suggestions to the list
+            listOfSpaces[0].appendChild(li);
+
+        });
+    }
+
+    // if clicked outside the searchText disappear
+    // document.addEventListener('click', (e) => {
+    //     if (!searchIcon.contains(e.target)){
+            
+    //         searchIcon.classList.add("searchIcon");
+    //         searchIcon.classList.remove("searchIconContainer");
+    //         searchIcon.innerText = '';
+            
+    //     }
+    // });
+    where.addEventListener("click", () => {
+        let searchArea = document.querySelector(".searchArea");
+
+        
+        where.style.backgroundColor = "rgb(247, 247, 247)";
+        where.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
+        searchArea.style.backgroundColor = "rgba(209, 206, 206, 0.71)";
+        searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
+
+    });
 
 });
 

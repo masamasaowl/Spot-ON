@@ -17,13 +17,22 @@
     
     <div class="searchArea">
         <div class="where">
-            <p class="poppins-regular">Where to</p>
+            <div class="whereLayer">
+                <p class="poppins-regular whereText">Where to</p>
             <input class="searchbar poppins-regular" name="searchbar" type="text" placeholder="Search destinations">
 
             <!-- an empty list for the JS to filter search results -->
-            <ul class="listOfSpaces">
+             <div id="searchPanel">
+
+                <ul class="listOfSpaces">
+                    <p class="poppins-regular hidden" id="suggestions"> Suggested destinations</p>
+                    
                
-            </ul>
+                </ul>
+             </div>
+            
+            </div>
+            
         </div>
 
         <div class="verticalLine"></div>
@@ -33,10 +42,10 @@
             <input class="timePeriod poppins-regular" name="timePeriod" type="text" placeholder="Time period">
 
         </div>
-
+        
         <div class="searchIcon poppins-regular ">
             <i class="fa-solid fa-magnifying-glass"></i>
-            
+            <p class="nbsp hidden">&nbsp;</p>
         </div>
  
     </div>

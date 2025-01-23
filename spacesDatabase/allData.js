@@ -1,0 +1,273 @@
+const locations = [
+    // Spaces (Malls and Workspaces)
+    {
+        name: "Phoenix Market City",
+        address: "Viman Nagar, Pune",
+        city: "Pune",
+        state: "Maharashtra",
+        pincode: "411014",
+        location: { type: "Point", coordinates: [73.906, 18.5679] },
+        totalParkingSpots: 500,
+        type: "mall",
+        description: "A grand mall with top brands, eateries, and a multiplex.",
+        imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Infosys Campus",
+        address: "Electronic City, Bangalore",
+        city: "Bangalore",
+        state: "Karnataka",
+        pincode: "560100",
+        location: { type: "Point", coordinates: [77.6835, 12.8499] },
+        totalParkingSpots: 800,
+        type: "workspace",
+        description: "A sprawling IT workspace with state-of-the-art facilities.",
+        imageUrl: "https://images.unsplash.com/photo-1573496529574-be85d6a60704?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Amanora Mall",
+        address: "Hadapsar-Kharadi Bypass Road, Pune",
+        city: "Pune",
+        state: "Maharashtra",
+        pincode: "411028",
+        location: { type: "Point", coordinates: [73.9346, 18.5196] },
+        totalParkingSpots: 450,
+        type: "mall",
+        description: "A modern mall with shopping, dining, and entertainment under one roof.",
+        imageUrl: "https://images.unsplash.com/photo-1578926373983-5dbddf51b33c?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "DLF CyberHub",
+        address: "DLF Phase 2, Gurugram",
+        city: "Gurugram",
+        state: "Haryana",
+        pincode: "122002",
+        location: { type: "Point", coordinates: [77.0813, 28.4950] },
+        totalParkingSpots: 600,
+        type: "workspace",
+        description: "A premium business hub with global companies and cafes.",
+        imageUrl: "https://images.unsplash.com/photo-1597062424614-1a3311d4e4ec?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Mantri Square Mall",
+        address: "Malleshwaram, Bangalore",
+        city: "Bangalore",
+        state: "Karnataka",
+        pincode: "560003",
+        location: { type: "Point", coordinates: [77.5713, 12.9923] },
+        totalParkingSpots: 700,
+        type: "mall",
+        description: "A bustling mall with shopping, dining, and multiplex options.",
+        imageUrl: "https://images.unsplash.com/photo-1518655140604-7850c4a78cf9?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Embassy Tech Village",
+        address: "Bellandur, Bangalore",
+        city: "Bangalore",
+        state: "Karnataka",
+        pincode: "560103",
+        location: { type: "Point", coordinates: [77.6778, 12.9282] },
+        totalParkingSpots: 1000,
+        type: "workspace",
+        description: "An IT park with multinational companies and eco-friendly architecture.",
+        imageUrl: "https://images.unsplash.com/photo-1515444744556-3be4f8a16f54?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Select Citywalk",
+        address: "Saket, New Delhi",
+        city: "New Delhi",
+        state: "Delhi",
+        pincode: "110017",
+        location: { type: "Point", coordinates: [77.2221, 28.5276] },
+        totalParkingSpots: 400,
+        type: "mall",
+        description: "A fashionable mall with premium brands and a vibrant food court.",
+        imageUrl: "https://images.unsplash.com/photo-1542831371-d531d36971e6?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "DLF Mall of India",
+        address: "Sector 18, Noida",
+        city: "Noida",
+        state: "Uttar Pradesh",
+        pincode: "201301",
+        location: { type: "Point", coordinates: [77.3244, 28.5672] },
+        totalParkingSpots: 1200,
+        type: "mall",
+        description: "India's largest mall with a mix of shopping, dining, and entertainment.",
+        imageUrl: "https://images.unsplash.com/photo-1501426026826-31c667bdf23d?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Cyber Towers",
+        address: "Hitech City, Hyderabad",
+        city: "Hyderabad",
+        state: "Telangana",
+        pincode: "500081",
+        location: { type: "Point", coordinates: [78.3824, 17.4503] },
+        totalParkingSpots: 800,
+        type: "workspace",
+        description: "An iconic IT workspace hosting tech giants and startups.",
+        imageUrl: "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Ambience Mall",
+        address: "DLF Phase 3, Gurugram",
+        city: "Gurugram",
+        state: "Haryana",
+        pincode: "122002",
+        location: { type: "Point", coordinates: [77.0886, 28.5036] },
+        totalParkingSpots: 900,
+        type: "mall",
+        description: "A luxurious mall with a mix of global brands and gourmet dining.",
+        imageUrl: "https://images.unsplash.com/photo-1579876513944-0bbf125b31f3?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Orion Mall",
+        address: "Rajajinagar, Bangalore",
+        city: "Bangalore",
+        state: "Karnataka",
+        pincode: "560055",
+        location: { type: "Point", coordinates: [77.5555, 13.0104] },
+        totalParkingSpots: 750,
+        type: "mall",
+        description: "A scenic mall located near a lake, offering premium shopping and dining options.",
+        imageUrl: "https://images.unsplash.com/photo-1533106418989-88406c7d027e?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Mindspace IT Park",
+        address: "Madhapur, Hyderabad",
+        city: "Hyderabad",
+        state: "Telangana",
+        pincode: "500081",
+        location: { type: "Point", coordinates: [78.3915, 17.4401] },
+        totalParkingSpots: 850,
+        type: "workspace",
+        description: "A vibrant IT park hosting several multinational corporations.",
+        imageUrl: "https://images.unsplash.com/photo-1581091012184-9e4b5d12d4e5?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Lulu Mall",
+        address: "Edappally, Kochi",
+        city: "Kochi",
+        state: "Kerala",
+        pincode: "682024",
+        location: { type: "Point", coordinates: [76.3074, 10.0259] },
+        totalParkingSpots: 1200,
+        type: "mall",
+        description: "One of India's largest malls, offering a wide range of shopping and dining experiences.",
+        imageUrl: "https://images.unsplash.com/photo-1570872628283-f9e0c8d8a9ee?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "RMZ Infinity",
+        address: "Old Madras Road, Bangalore",
+        city: "Bangalore",
+        state: "Karnataka",
+        pincode: "560016",
+        location: { type: "Point", coordinates: [77.6575, 12.9922] },
+        totalParkingSpots: 1100,
+        type: "workspace",
+        description: "A premium office space with modern amenities and excellent connectivity.",
+        imageUrl: "https://images.unsplash.com/photo-1561460312-18609834d622?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Elante Mall",
+        address: "Industrial Area Phase I, Chandigarh",
+        city: "Chandigarh",
+        state: "Chandigarh",
+        pincode: "160002",
+        location: { type: "Point", coordinates: [76.8019, 30.7057] },
+        totalParkingSpots: 1000,
+        type: "mall",
+        description: "A modern mall with a mix of high-street fashion, retail, and food outlets.",
+        imageUrl: "https://images.unsplash.com/photo-1541233349642-6e425fe6190e?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "Brigade Tech Park",
+        address: "Whitefield, Bangalore",
+        city: "Bangalore",
+        state: "Karnataka",
+        pincode: "560066",
+        location: { type: "Point", coordinates: [77.7286, 12.9906] },
+        totalParkingSpots: 1300,
+        type: "workspace",
+        description: "An expansive IT park known for its cutting-edge facilities.",
+        imageUrl: "https://images.unsplash.com/photo-1542838687-0a4e3e49b4e6?fit=max&w=1080",
+        createdAt: new Date()
+    },
+
+    // Add 10 more entries for Spaces...
+
+    // Entertainment (Stadiums and Movie Theatres)
+    {
+        name: "Wankhede Stadium",
+        address: "Churchgate, Mumbai",
+        city: "Mumbai",
+        state: "Maharashtra",
+        pincode: "400020",
+        location: { type: "Point", coordinates: [72.8268, 18.9395] },
+        totalParkingSpots: 1000,
+        type: "stadium",
+        description: "A renowned cricket stadium hosting major international matches.",
+        imageUrl: "https://images.unsplash.com/photo-1542060742-1ff91e168127?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "INOX Cinemas",
+        address: "Mall Road, Delhi",
+        city: "New Delhi",
+        state: "Delhi",
+        pincode: "110001",
+        location: { type: "Point", coordinates: [77.2167, 28.6448] },
+        totalParkingSpots: 300,
+        type: "theatre",
+        description: "A luxurious multiplex offering premium movie-watching experiences.",
+        imageUrl: "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    // Add 8 more entries for Entertainment...
+
+    // Travel (Airports and Railway Stations)
+    {
+        name: "Chhatrapati Shivaji Airport",
+        address: "Santacruz, Mumbai",
+        city: "Mumbai",
+        state: "Maharashtra",
+        pincode: "400099",
+        location: { type: "Point", coordinates: [72.8679, 19.0896] },
+        totalParkingSpots: 1500,
+        type: "airport",
+        description: "One of India's busiest airports, blending modern and traditional designs.",
+        imageUrl: "https://images.unsplash.com/photo-1534339393142-df84cc609eca?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    {
+        name: "New Delhi Railway Station",
+        address: "Ajmeri Gate, New Delhi",
+        city: "New Delhi",
+        state: "Delhi",
+        pincode: "110006",
+        location: { type: "Point", coordinates: [77.2273, 28.6426] },
+        totalParkingSpots: 700,
+        type: "railway station",
+        description: "A major railway hub connecting cities across India.",
+        imageUrl: "https://images.unsplash.com/photo-1512813195386-d63c01e2f0b7?fit=max&w=1080",
+        createdAt: new Date()
+    },
+    // Add 8 more entries for Travel...
+
+    // Add sections for Stays, Care, Institutions, and Apartments...
+];
