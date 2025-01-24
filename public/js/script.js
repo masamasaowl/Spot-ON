@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let listOfSpaces = document.querySelectorAll(".listOfSpaces");
     let searchbar = document.querySelector(".searchbar");
     
-    // function to fetch the spaces from the database send to route /searchSpaces
+    // ===========  function to fetch the spaces from the database send to route /searchSpaces =============
     const fetchSpaces = async() => {
         try{
             const response = await fetch("/searchSpaces");
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     
-    
     // next is how the dropdown options would work
     const renderDropdown = (options) => {
         // clear any previously existing items in the ul
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             listOfSpaces[0].classList.add('hidden'); // Hide the dropdown if no options
             return;
         }
-    
         console.log(options);
          
         // loop through the options
@@ -41,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement("li");
     
             li.innerText = option.name; 
-
             
             // style the list
             // the location dot icon
@@ -56,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
             li.classList.add("poppins-regular","suggestionStyle");
     
     
-            
             // if an option is selected
                 li.addEventListener('click', () => {
                     searchbar.value = option.name; 
@@ -84,12 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredSpaces = spaces.filter((space) =>
             space.name.toLowerCase().includes(query)
         );
-    
         console.log("input received ");
     
         // call to render the dropdown
         renderDropdown(filteredSpaces);
-
     });
     
     
@@ -100,11 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ========================================================
 
 
-    // ========================================
 
-    // functionality for styling
+    // ============ functionality for styling of suggestions =====
     let searchIcon = document.querySelector(".searchIcon");
     let searchPanel = document.querySelector("#searchPanel");
     let where = document.querySelector(".where");
@@ -171,28 +165,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // if clicked outside the searchText disappear
-    // document.addEventListener('click', (e) => {
-    //     if (!searchIcon.contains(e.target)){
-            
-    //         searchIcon.classList.add("searchIcon");
-    //         searchIcon.classList.remove("searchIconContainer");
-    //         searchIcon.innerText = '';
-            
-    //     }
-    // });
-    where.addEventListener("click", () => {
-        let searchArea = document.querySelector(".searchArea");
+    // styling for Where to option
+    let searchArea = document.querySelector(".searchArea");
 
-        
+    where.addEventListener("click", () => {
         where.style.backgroundColor = "rgb(247, 247, 247)";
         where.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
         searchArea.style.backgroundColor = "rgba(209, 206, 206, 0.71)";
         searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
 
     });
+    // =====================================================
 
-});
+
+
+    // ============= functioning of bookIt button =============
+    let bookIt = document.querySelector(".bookIt");
+    let parkIt = document.querySelector(".parkIt");
+
+    bookIt.addEventListener("click", () => {
+        let date = document.querySelector(".date");
+        date.classList.remove("hidden");
+
+        // fix style of searchIcon
+        searchIcon.style.width = "13rem"
+
+        bookIt.classList.remove("poppins-extralight");
+        bookIt.classList.add("poppins-regular");
+        parkIt.classList.remove("poppins-regular")
+        parkIt.classList.add("poppins-extralight");
+    });
+    parkIt.addEventListener("click", () => {
+        let date = document.querySelector(".date");
+        date.classList.add("hidden");
+        searchIcon.style.width = "7.7rem"
+
+        parkIt.classList.remove("poppins-extralight");
+        parkIt.classList.add("poppins-regular");
+        bookIt.classList.remove("poppins-regular")
+        bookIt.classList.add("poppins-extralight");
+    });
+
+    // ==================================================
+
+
+}); 
 
 
 

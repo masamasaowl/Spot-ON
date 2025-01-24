@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const initData = require("./data.js");
+const initData = require("./allData.js");
 const Space = require("../models/spaces.js");
 
 async function main() {

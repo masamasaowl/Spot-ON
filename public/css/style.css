@@ -1,4 +1,10 @@
 /* font */
+.poppins-extralight {
+    font-family: "Poppins", serif;
+    font-weight: 200;
+    font-style: normal;
+}
+  
 .poppins-regular {
     font-family: "Poppins", serif;
     font-weight: 400;
@@ -30,10 +36,6 @@ body{
     width: 100%;
     margin: 0;
 }
-.hidden{
-    display: none;
-}
-
 /* =============== navbar ============== */
 
 .navbar{
@@ -113,17 +115,7 @@ body{
     border-radius: 100px;
     margin-bottom: 20px;
 }
-.where{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 60px;
-    padding: 1.4rem 2rem;
-    font-size: 0.85rem;
-    border-radius: 100px;
-}
-.for{
+.where, .for, .date{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,13 +128,13 @@ body{
 .whereLayer{
     margin-top: 17px;
 }
-.where:hover, .for:hover{
+.where:hover, .for:hover,.date:hover {
     background-color:rgba(219, 216, 216, 0.707) ;
 }
-.where p,.for p{
+.where p,.for p, .date p{
     margin: 0;
 }
-.searchbar, .timePeriod{
+.searchbar, .timePeriod, .addDates{
     border: none;
     background: none;
 }
@@ -178,6 +170,13 @@ body{
     overflow-y: auto;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
 }
+.mapContainer{
+    height: 400px;
+    width: 90%;
+    margin: auto;
+    background-color: #ffcc00;
+    border-radius: 15px;
+}
 
 
 
@@ -185,6 +184,9 @@ body{
 
 
 /* ==================== JS classes ===================== */
+.hidden{
+    display: none;
+}
 .searchIconContainer{
     display: flex;
     justify-content: center;
@@ -206,6 +208,7 @@ body{
 .suggestionStyle{
     list-style: none;
     padding: 5px 10px;
+    margin-top: 4px;
     font-size: 1rem;
 }
 .suggestionStyle:hover{
