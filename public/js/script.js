@@ -85,14 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // call to render the dropdown
         renderDropdown(filteredSpaces);
     });
-    
-    
-    // if clicked outside the options disappear
-    document.addEventListener('click', (e) => {
-        if (!document.getElementById('search-container').contains(e.target)) {
-            listOfSpaces[0].classList.add('hidden');
-        }
-    });
 
     // ========================================================
 
@@ -113,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
         searchIcon.classList.remove("searchIcon");
         searchIcon.classList.add("searchIconContainer");
 
-        
         // now an additional margin appears so to remove it 
         let whereLayer = document.querySelector(".whereLayer");
         whereLayer.style.margin = "0";
@@ -128,42 +119,84 @@ document.addEventListener('DOMContentLoaded', () => {
         const names = defaultSuggestions.map(space => space.name);
         console.log(names);
 
-        // call showSuggestions function
-        showSuggestions(names);
+        // store all the types too
+        const type = defaultSuggestions.map(space => space.type);
+        console.log(type);
 
+        const latitude = defaultSuggestions.map(space => space.location.coordinates[1]);
+        const longitude = defaultSuggestions.map(space => space.location.coordinates[0]);
+        
+
+        // call showSuggestions function
+        showSuggestions(names, type, latitude, longitude);
     });
 
     // a function to showcase the default suggestions
-    function showSuggestions (suggestions){
+    function showSuggestions (suggestions, types, latitude, longitude){
         // searchPanel.innerText = '';
-        
-        suggestions.forEach((suggestion) => {
-    
-            // create a list item
-            const li = document.createElement("li");
-            // store the suggestion
-            li.innerText = suggestion;
 
+        console.log(latitude)
+        
+        suggestions.forEach((suggestion,index) => {
             // the heading of the searches
             let heading = document.querySelector("#suggestions");
             heading.classList.remove("hidden");
+    
+            // create a list item
+            const li = document.createElement("li");
+
+            // create a container to hold name and type together
+            let suggestionContainer = document.createElement("div");
+            suggestionContainer.classList.add("suggestionContainer");
+
+            // two div one for name other for type
+            const nameElement = document.createElement("div");
+            nameElement.innerText = suggestion;
+            nameElement.classList.add("locationName", "poppins-regular");
+
+            const typeElement = document.createElement("div");
+            typeElement.innerText = types[index];
+            typeElement.classList.add("locationType","poppins-regular");
+
+            // append both in suggestion container
+            suggestionContainer.appendChild(nameElement);
+            suggestionContainer.appendChild(typeElement);
 
             // the location dot icon
             const i = document.createElement("i");
 
-            i.innerHTML = "<i></i>";
             i.classList.add("fa-solid", "fa-location-dot");
             // add it to the list
-            li.prepend(i);
+            li.appendChild(i);
+            li.appendChild(suggestionContainer);
             
             // styling for the suggestions
-            li.classList.add("poppins-regular","suggestionStyle");
+            li.classList.add("suggestionStyle");
+
+            // if an option is selected
+            li.addEventListener('click', () => {
+                searchbar.value = suggestion; 
+                listOfSpaces[0].classList.add('hidden');
+                console.log(searchbar.value);
+                 
+                // calling Google Maps when option is clicked
+                latVal = latitude[index];
+                longVal = longitude[index];
+
+                initMap(latVal,longVal);
+            });
+            
 
             // add the suggestions to the list
             listOfSpaces[0].appendChild(li);
 
+            
         });
-    }
+        
+    };
+    
+
+
 
     // styling for Where to option
     let searchArea = document.querySelector(".searchArea");
@@ -208,8 +241,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================================================
 
-
 }); 
+
+
+
+// ================ Google Maps API ===============
+// Initialize and add the map
+let map;
+
+async function initMap(latitude, longitude) {
+  // The location of Uluru
+  const position = { lat: latitude, lng: longitude};
+  // Request needed libraries.
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+  // The map, centered at Uluru
+  map = new Map(document.getElementById("map"), {
+    zoom: 20,
+    center: position,
+    mapId: "DEMO_MAP_ID",
+  });
+
+  // The marker, positioned at Uluru
+  const marker = new AdvancedMarkerElement({
+    map: map,
+    position: position,
+    title: "Uluru",
+  });
+}
+
+// initMap();
+
 
 
 

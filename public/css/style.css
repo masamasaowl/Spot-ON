@@ -177,6 +177,11 @@ body{
     background-color: #ffcc00;
     border-radius: 15px;
 }
+#map{
+    height: 400px;
+    width: 100%;
+    border-radius: 15px;
+}
 
 
 
@@ -218,4 +223,17 @@ body{
 }
 .fa-location-dot{
     margin-right: 10px;
+    font-size: 1.1rem;
+}
+.suggestionContainer{
+    display: inline-flex;
+    flex-direction: column;
+}
+.locationName{
+    margin: 0;
+}
+.locationType{
+    font-size: 0.8rem;
+    
+
 }
