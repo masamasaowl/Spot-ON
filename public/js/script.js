@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let searchIcon = document.querySelector(".searchIcon");
     let searchPanel = document.querySelector("#searchPanel");
     let where = document.querySelector(".where");
+    
+
 
     // addition of search text with the searchIcon
     searchbar.addEventListener("click", async() => {
@@ -101,10 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // for search text
         let nbsp = document.querySelector(".nbsp");
         nbsp.classList.remove("hidden");
-        searchIcon.append("Search");
-        searchIcon.classList.remove("searchIcon");
-        searchIcon.classList.add("searchIconContainer");
 
+        // the search text appears only once
+        if(!searchIcon.innerText.includes("Search")){
+            searchIcon.append("Search");
+            searchIcon.classList.remove("searchIcon");
+            searchIcon.classList.add("searchIconContainer");
+        }
+        
         // now an additional margin appears so to remove it 
         let whereLayer = document.querySelector(".whereLayer");
         whereLayer.style.margin = "0";
@@ -122,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // store all the types too
         const type = defaultSuggestions.map(space => space.type);
         console.log(type);
-
+        
         const latitude = defaultSuggestions.map(space => space.location.coordinates[1]);
         const longitude = defaultSuggestions.map(space => space.location.coordinates[0]);
         
@@ -178,25 +184,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 searchbar.value = suggestion; 
                 listOfSpaces[0].classList.add('hidden');
                 console.log(searchbar.value);
-                 
+
+                // map container is visible
+                let mapContainer = document.querySelector(".mapContainer");
+                mapContainer.classList.remove("hidden");
+
                 // calling Google Maps when option is clicked
                 latVal = latitude[index];
                 longVal = longitude[index];
 
-                initMap(latVal,longVal);
+                // initMap(latVal,longVal);
+
+                // moving to for time period 
+                removeSelection();
+
             });
             
 
             // add the suggestions to the list
-            listOfSpaces[0].appendChild(li);
-
-            
+            listOfSpaces[0].appendChild(li);    
         });
-        
     };
+
+    // remove 
     
-
-
 
     // styling for Where to option
     let searchArea = document.querySelector(".searchArea");
@@ -204,11 +215,47 @@ document.addEventListener('DOMContentLoaded', () => {
     where.addEventListener("click", () => {
         where.style.backgroundColor = "rgb(247, 247, 247)";
         where.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
-        searchArea.style.backgroundColor = "rgba(209, 206, 206, 0.71)";
+        searchArea.style.backgroundColor = "rgba(215, 213, 213, 0.78)";
         searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
 
     });
+
     // =====================================================
+
+
+    // ============= functioning of for time period  =============
+
+    let fore = document.querySelector(".fore");
+    let timePeriod = document.querySelector(".timePeriod");
+    let timePanel = document.querySelector("#timePanel");
+    let listOfTimings = document.querySelector(".listOfTimings");
+    let aroundPeriod = document.querySelector("#aroundPeriod");
+    
+    timePeriod.addEventListener("click", async() => {
+
+        // for search text
+        let nbsp = document.querySelector(".nbsp");
+        nbsp.classList.remove("hidden");
+
+        // the search text appears only once
+        if(!searchIcon.innerText.includes("Search")){
+            searchIcon.append("Search");
+            searchIcon.classList.remove("searchIcon");
+            searchIcon.classList.add("searchIconContainer");
+        }
+
+        // add the styling of timePanel
+        timePanel.classList.add("timeRange");
+
+        listOfTimings.classList.remove("hidden");
+    });
+
+    fore.addEventListener("click", () => {
+        fore.style.backgroundColor = "rgb(247, 247, 247)";
+        fore.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
+        searchArea.style.backgroundColor = "rgba(215, 213, 213, 0.78)";
+        searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
+    });
 
 
 
@@ -219,6 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
     bookIt.addEventListener("click", () => {
         let date = document.querySelector(".date");
         date.classList.remove("hidden");
+        let verticalLine2 = document.querySelector("#verticalLine2")
+        verticalLine2.classList.remove("hidden");
 
         // fix style of searchIcon
         searchIcon.style.width = "13rem"
@@ -231,6 +280,9 @@ document.addEventListener('DOMContentLoaded', () => {
     parkIt.addEventListener("click", () => {
         let date = document.querySelector(".date");
         date.classList.add("hidden");
+        let verticalLine2 = document.querySelector("#verticalLine2")
+        verticalLine2.classList.add("hidden");
+
         searchIcon.style.width = "7.7rem"
 
         parkIt.classList.remove("poppins-extralight");
@@ -271,9 +323,8 @@ async function initMap(latitude, longitude) {
     title: "Uluru",
   });
 }
-
 // initMap();
 
-
+// =======================================================
 
 

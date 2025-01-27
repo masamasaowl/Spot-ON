@@ -2,72 +2,104 @@
 
 <body>
 
-    <div class="heroSection">
-        <div class="headText">
-            <h1 class="welcome merriweather-regular">Discover the world's top designers
-            </h1>
-
-        </div>
-        <div class="bottomText">
-
-            <p class="poppins-regular">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ut, quos reprehenderit provident dolorem consectetur.
-            </p>
-        </div>
-    </div>
+    <div class="background">
+        <div class="heroSection">
+            <div class="headText">
+                <h1 class="welcome inter">Park Smarter.
+                    <br> Spot On
+                </h1>
     
-    <div class="searchArea">
-        <div class="where">
-            <div class="whereLayer">
-                <p class="poppins-regular whereText">Where to</p>
-            <input class="searchbar poppins-regular" name="searchbar" type="text" placeholder="Search destinations">
-
-            <!-- an empty list for the JS to filter search results -->
-             <div id="searchPanel">
-
-                <ul class="listOfSpaces">
-                    <p class="poppins-regular hidden" id="suggestions"> Suggested destinations</p>
-               
-                </ul>
-             </div>
+            </div>
+            <div class="bottomText">
+    
+                <p class="poppins-regular">
+                    Discover and reserve parking spaces in seconds. No stress, no waiting—just park with confidence.
+                </p>
+            </div>
+        </div>
+        
+        <div class="searchArea">
+            <div class="where">
+                <div class="whereLayer">
+                    <p class="poppins-regular whereText">Where to</p>
+                    <input class="searchbar poppins-regular" name="searchbar" type="text" placeholder="Search destinations">
+        
+                    <!-- an empty list for the JS to filter search results -->
+                    <div id="searchPanel">
+        
+                        <ul class="listOfSpaces">
+                            <p class="poppins-regular hidden" id="suggestions"> Suggested destinations</p>
+                       
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+            </div>
+    
+            <div class="verticalLine"></div>
+    
+            <div class="fore">
+                <p class="poppins-regular">For</p>
+                <input class="timePeriod poppins-regular" name="timePeriod" type="text" placeholder="Time period">
+    
+                <div id="timePanel">
+    
+                    <ul class="listOfTimings hidden">
+                        <p class="poppins-regular" id="aroundPeriod"> Select one of the time periods</p>
+    
+                        <i class="fa-solid fa-clock"></i>
+                        <li class="timePeriodStyle 
+                        poppins-regular">10-20 minutes</li>
+                        <br>
+                        <i class="fa-solid fa-clock"></i>
+                        <li class="timePeriodStyle poppins-regular">20-30 minutes</li>
+                        <br>
+                        <i class="fa-solid fa-clock"></i>
+                        <li class="timePeriodStyle poppins-regular">30-40 minutes</li>
+                        <br>
+                        <i class="fa-solid fa-clock"></i>
+                        <li class="timePeriodStyle poppins-regular">40-50 hour</li>
+                        <br>
+                        <i class="fa-solid fa-clock"></i>
+                        <li class="timePeriodStyle poppins-regular">1 hour</li>
+                        <br>
+                        <i class="fa-solid fa-clock"></i>
+                        <li class="timePeriodStyle poppins-regular">2 hours</li>
+                        <br>
+                        <i class="fa-solid fa-clock"></i>
+                        <li class="timePeriodStyle poppins-regular">3 hours</li>
+                   
+                    </ul> 
+                </div>
+    
+            </div>
+    
+            <div id="verticalLine2" class="verticalLine hidden"></div>
+    
+            <div class="date hidden">
+                 <p class="poppins-regular">Date</p>
+                <input class="addDates poppins-regular" name="addDates" type="text" placeholder="Add dates">
             
             </div>
             
+            <div class="searchIcon poppins-regular ">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <p class="nbsp hidden">&nbsp;</p>
+            </div>
+     
         </div>
-
-        <div class="verticalLine"></div>
-
-        <div class="date hidden">
-             <p class="poppins-regular">Date</p>
-            <input class="addDates poppins-regular" name="addDates" type="text" placeholder="Add dates">
-        
-        </div>
-
-        <div class="verticalLine"></div>
-
-        <div class="for">
-            <p class="poppins-regular">For</p>
-            <input class="timePeriod poppins-regular" name="timePeriod" type="text" placeholder="Time period">
-
-        </div>
-        
-        <div class="searchIcon poppins-regular ">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <p class="nbsp hidden">&nbsp;</p>
-        </div>
- 
-    </div>
-
-    <div class="mapContainer">
-        <div id="map">
-        
-        </div>
-    </div>
     
+        <div class="mapContainer hidden">
+            <div id="map">
+            
+            </div>
+        </div>
+    </div>
 
     <hr>
 
-    
+    <!-- Google Maps -->
     <!-- prettier-ignore -->
     <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
         ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});

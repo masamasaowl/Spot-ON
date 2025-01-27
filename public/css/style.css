@@ -16,12 +16,14 @@
     font-weight: 600;
     font-style: normal;
 }
+.inter{
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
   
-.merriweather-regular {
-    font-family: "Merriweather", serif;
-    font-weight: 400;
-    font-style: normal;
-}  
+  
 
 *{
     margin: 0;
@@ -80,6 +82,12 @@ body{
 }
 
 /* ================ Home ==============*/
+.background{
+    /* background-image: url("/static/images/Screenshot 2025-01-27 at 2.33.20 PM.png"); */
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
 .heroSection{
     width: 60%;
     margin: auto;
@@ -91,7 +99,7 @@ body{
 }
 .heroSection h1{
     text-align: center;
-    font-size: 3.7rem;
+    font-size: 4.4rem;
 }
 .heroSection p{
     text-align: center;
@@ -100,9 +108,8 @@ body{
     margin-top: 5px;
 }
 .bottomText{
-    margin-top: 5px;
+    margin-top: 15px;
 }
-
 .searchArea{
     display: flex;
     justify-content: center;
@@ -114,8 +121,9 @@ body{
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
     border-radius: 100px;
     margin-bottom: 20px;
+    margin-top: 10vh;
 }
-.where, .for, .date{
+.where, .fore, .date{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -128,10 +136,10 @@ body{
 .whereLayer{
     margin-top: 17px;
 }
-.where:hover, .for:hover,.date:hover {
-    background-color:rgba(219, 216, 216, 0.707) ;
+.where:hover, .fore:hover,.date:hover {
+    background-color:rgba(215, 213, 213, 0.78) ;
 }
-.where p,.for p, .date p{
+.where p,.fore p, .date p{
     margin: 0;
 }
 .searchbar, .timePeriod, .addDates{
@@ -161,8 +169,20 @@ body{
 .searchResults{
     position: absolute;
     background-color: #ffcc00;
-    top: 70%;
+    top: 80%;
     left: 15%;
+    z-index: 100;
+    border-radius: 35px;
+    max-height: 400px;
+    width: 400px;
+    overflow-y: auto;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+}
+.timeRange{
+    position: absolute;
+    background-color: #ffcc00;
+    top: 80%;
+    left: 45%;
     z-index: 100;
     border-radius: 35px;
     max-height: 400px;
@@ -210,6 +230,9 @@ body{
 #suggestions{
     margin: 18px 0 8px 0;
 }
+#aroundPeriod{
+    margin: 18px 0 8px 0;
+}
 .suggestionStyle{
     list-style: none;
     padding: 5px 10px;
@@ -221,7 +244,23 @@ body{
     border-radius: 100px;
     cursor: pointer;
 }
+.timePeriodStyle{
+    list-style: none;
+    padding: 5px 10px;
+    margin-top: 4px;
+    font-size: 1rem;
+    display: inline-block;
+}
+.timePeriodStyle:hover{
+    background-color: #ebbc00;
+    border-radius: 100px;
+    cursor: pointer;
+}
 .fa-location-dot{
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+.fa-clock{
     margin-right: 10px;
     font-size: 1.1rem;
 }
@@ -234,6 +273,4 @@ body{
 }
 .locationType{
     font-size: 0.8rem;
-    
-
 }
