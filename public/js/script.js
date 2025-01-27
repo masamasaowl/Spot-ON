@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             listOfSpaces[0].classList.add('hidden'); // Hide the dropdown if no options
             return;
         }
-        console.log(options);
+        // console.log(options);
          
         // loop through the options
         options.forEach((option) => {
@@ -100,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // addition of search text with the searchIcon
     searchbar.addEventListener("click", async() => {
 
+        listOfSpaces[0].classList.remove("hidden");
+
         // for search text
         let nbsp = document.querySelector(".nbsp");
         nbsp.classList.remove("hidden");
@@ -111,9 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
             searchIcon.classList.add("searchIconContainer");
         }
         
-        // now an additional margin appears so to remove it 
-        let whereLayer = document.querySelector(".whereLayer");
-        whereLayer.style.margin = "0";
+        // // now an additional margin appears so to remove it 
+        // let whereLayer = document.querySelector(".whereLayer");
+        // whereLayer.style.margin = "0";
 
         // add the styling of searchPanel
         searchPanel.classList.add("searchResults");
@@ -123,11 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
         // using map we store all the names in a variable 
         const names = defaultSuggestions.map(space => space.name);
-        console.log(names);
+        // console.log(names);
 
         // store all the types too
         const type = defaultSuggestions.map(space => space.type);
-        console.log(type);
+        // console.log(type);
         
         const latitude = defaultSuggestions.map(space => space.location.coordinates[1]);
         const longitude = defaultSuggestions.map(space => space.location.coordinates[0]);
@@ -140,8 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // a function to showcase the default suggestions
     function showSuggestions (suggestions, types, latitude, longitude){
         // searchPanel.innerText = '';
-
-        console.log(latitude)
         
         suggestions.forEach((suggestion,index) => {
             // the heading of the searches
@@ -194,28 +194,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 longVal = longitude[index];
 
                 // initMap(latVal,longVal);
-
-                // moving to for time period 
-                removeSelection();
-
+                
+                optionClicked(searchbar.value);
             });
             
-
             // add the suggestions to the list
             listOfSpaces[0].appendChild(li);    
         });
     };
 
-    // remove 
+    // after an option is clicked
+    function optionClicked(option){
+        console.log(`${option} was clicked`);
+    }
     
 
     // styling for Where to option
     let searchArea = document.querySelector(".searchArea");
 
     where.addEventListener("click", () => {
+        // to make the other box visible
+        if(fore.style.backgroundColor = "rgb(247, 247, 247)"){
+            fore.style.backgroundColor = "rgba(215, 212, 213, 0)"
+            fore.style.boxShadow = "none";
+            listOfTimings.classList.add("hidden");
+        }
+
         where.style.backgroundColor = "rgb(247, 247, 247)";
         where.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
-        searchArea.style.backgroundColor = "rgba(215, 213, 213, 0.78)";
+        searchArea.style.backgroundColor = "rgba(215, 212, 213, 0.78)";
         searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
 
     });
@@ -232,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let aroundPeriod = document.querySelector("#aroundPeriod");
     
     timePeriod.addEventListener("click", async() => {
-
         // for search text
         let nbsp = document.querySelector(".nbsp");
         nbsp.classList.remove("hidden");
@@ -251,6 +257,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fore.addEventListener("click", () => {
+        // to make the other box visible
+        if(where.style.backgroundColor = "rgb(247, 247, 247)"){
+            where.style.backgroundColor = "rgba(215, 212, 213, 0)"
+            where.style.boxShadow = "none";
+            listOfSpaces[0].classList.add("hidden");
+        }
+
         fore.style.backgroundColor = "rgb(247, 247, 247)";
         fore.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
         searchArea.style.backgroundColor = "rgba(215, 213, 213, 0.78)";

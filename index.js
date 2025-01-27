@@ -5,6 +5,8 @@ const app = express();
 const methodOverride = require ("method-override");
 const path = require("path");
 const mongoose = require('mongoose');
+require('dotenv').config();
+app.locals.googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 // models
 const Space = require("./models/spaces.js");
@@ -55,7 +57,7 @@ app.listen(port, () => {
 app.get("/", async(req,res) => {
   let allSpaces = await Space.find({});
 
-  res.render("home", {allSpaces});
+  res.render("home", {allSpaces, googleMapsApiKey: app.locals.googleMapsApiKey});
 });
 
 // this route is fetched by public/js/script.js used to showcase the available options 

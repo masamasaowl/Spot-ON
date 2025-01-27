@@ -133,9 +133,9 @@ body{
     font-size: 0.85rem;
     border-radius: 100px;
 }
-.whereLayer{
+/* .whereLayer{
     margin-top: 17px;
-}
+} */
 .where:hover, .fore:hover,.date:hover {
     background-color:rgba(215, 213, 213, 0.78) ;
 }
@@ -206,8 +206,6 @@ body{
 
 
 
-
-
 /* ==================== JS classes ===================== */
 .hidden{
     display: none;
@@ -273,4 +271,9 @@ body{
 }
 .locationType{
     font-size: 0.8rem;
+}
+.enterLocation{
+    width: 65%;
+    margin: auto;
+    margin-top: 20px;
 }
