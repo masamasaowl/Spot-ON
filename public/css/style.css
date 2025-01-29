@@ -80,6 +80,9 @@ body{
     height: 70%; 
     margin: auto;
 }
+.horizontalLine{
+    margin: 15px 0;
+}
 
 /* ================ Home ==============*/
 .background{
@@ -103,6 +106,7 @@ body{
 }
 .heroSection p{
     text-align: center;
+    font-size: 1.4rem;
 }
 .welcome{
     margin-top: 5px;
@@ -110,7 +114,7 @@ body{
 .bottomText{
     margin-top: 15px;
 }
-.searchArea{
+.searchArea, .locationArea{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,10 +124,10 @@ body{
     background-color: white;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
     border-radius: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-top: 10vh;
 }
-.where, .fore, .date{
+.where, .fore, .date, .location{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,20 +140,20 @@ body{
 /* .whereLayer{
     margin-top: 17px;
 } */
-.where:hover, .fore:hover,.date:hover {
+.where:hover, .fore:hover,.date:hover, .location:hover {
     background-color:rgba(215, 213, 213, 0.78) ;
 }
-.where p,.fore p, .date p{
+.where p,.fore p, .date p, .location p{
     margin: 0;
 }
-.searchbar, .timePeriod, .addDates{
+.searchbar, .timePeriod, .addDates,.yourLocation{
     border: none;
     background: none;
 }
-.searchbar{
+.searchbar, .yourLocation{
     width: 100%;
 }
-.searchIcon{
+.searchIcon, .locationIcon{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,11 +163,11 @@ body{
     background-color: #ffcc00;
     margin-right: 10px;
 }
-.searchIcon i{
+.searchIcon i, .locationIcon i{
     color: #212529;
     font-size: 1.2rem;
 }
-.searchIcon:hover{
+.searchIcon:hover, .locationIcon:hover{
     background-color: rgb(235, 188, 0);
 }
 .searchResults{
@@ -202,6 +206,65 @@ body{
     width: 100%;
     border-radius: 15px;
 }
+
+/* the generated location bar */
+.locationIcon{
+    width: 3.6rem;
+}
+.locationArea{
+    margin-top: 3px;
+}
+
+
+/* ============== Categories.ejs ================ */
+.maneuverBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.categories{
+    width: 70%;
+    margin: auto;
+    overflow-x: auto;
+
+}
+.listOfCategories{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 5px 10px;
+    margin-top: 4px;
+}
+.listOfCategories li button{
+    border: none;
+    color:#6a6a6a ;
+    /* width: 100px; */
+    height: 40px;
+    /* border-radius: 110px; */
+    background-color: #F7F7F7;
+}
+.listOfCategories li button:hover{
+    color: #212529;
+    border-bottom: 2px solid #6a6a6a;
+}
+.filterBox{
+    display: inline-block;
+    margin: auto;
+    padding-bottom: 12px;
+}
+.filter{
+    border: 1px solid #bababa;
+    width: 100px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #F7F7F7;
+}
+.filter:hover{
+    border: 1px solid #6a6a6a;
+    background-color: rgba(229, 226, 226, 0.603);
+}
+
+
 
 
 

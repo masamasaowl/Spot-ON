@@ -66,4 +66,9 @@ app.get("/searchSpaces", async(req,res) => {
 
   // send the spaces in the JSON format 
   res.json(spaces);
-})
+});
+
+app.get("/spaces", async(req,res) => {
+  
+
+});

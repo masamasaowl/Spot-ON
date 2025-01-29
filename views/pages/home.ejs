@@ -90,18 +90,17 @@
      
         </div>
 
-        <p class="enterLocation">Your location would help us showcase probabilistic data </p>
+        <p class="enterLocation hidden">*Your location would help us showcase probabilistic data </p>
 
-        <div class="searchArea">
-            <div class="where">
-                <p class="poppins-regular whereText">Where to</p>
-                <input class="searchbar poppins-regular" name="searchbar" type="text" placeholder="Search destinations">
+        <div class="locationArea hidden">
+            <div class="location">
+                <p class="poppins-regular whereText">Location</p>
+                <input class="yourLocation poppins-regular" name="yourLocation" type="text" placeholder="Your location">
 
             </div>
     
-            <div class="searchIcon poppins-regular ">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <p class="nbsp hidden">&nbsp;</p>
+            <div class="locationIcon poppins-regular ">
+                <i class="fa-solid fa-location-crosshairs"></i>
             </div>
             
         </div>
@@ -113,7 +112,9 @@
         </div>
     </div>
 
-    <hr>
+    <hr class="horizontalLine">
+
+    <%- include('../pages/categories.ejs') %>
 
     <!-- Google Maps -->
     <!-- prettier-ignore -->
