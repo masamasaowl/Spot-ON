@@ -55,9 +55,10 @@ app.listen(port, () => {
 
 // ================= Home page =================
 app.get("/", async(req,res) => {
-  let allSpaces = await Space.find({});
+  // fetch only spaces at first to display on homepage
+  let onlySpaces = await Space.find({type: {$in: ["mall", "workspace"]}});
 
-  res.render("home", {allSpaces, googleMapsApiKey: app.locals.googleMapsApiKey});
+  res.render("home", {onlySpaces, googleMapsApiKey: app.locals.googleMapsApiKey});
 });
 
 // this route is fetched by public/js/script.js used to showcase the available options 
@@ -68,7 +69,10 @@ app.get("/searchSpaces", async(req,res) => {
   res.json(spaces);
 });
 
-app.get("/spaces", async(req,res) => {
-  
+// fetch the places for Entertainment
+app.get("/entertainment", async(req,res) => {
+  // fetch only spaces at first to display on homepage
+  let onlyEntertainment = await Space.find({type: {$in: ["stadium", "movieTheatre"]}});
 
+  res.json(onlyEntertainment);
 });

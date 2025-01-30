@@ -10,7 +10,7 @@ const locations = [
         totalParkingSpots: 500,
         type: "mall",
         description: "A grand mall with top brands, eateries, and a multiplex.",
-        imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1559171667-74fe3499b5ba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -23,7 +23,7 @@ const locations = [
         totalParkingSpots: 800,
         type: "workspace",
         description: "A sprawling IT workspace with state-of-the-art facilities.",
-        imageUrl: "https://images.unsplash.com/photo-1573496529574-be85d6a60704?fit=max&w=1080",
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Infosys_%284911287704%29.jpg/2560px-Infosys_%284911287704%29.jpg",
         createdAt: new Date()
     },
     {
@@ -36,7 +36,7 @@ const locations = [
         totalParkingSpots: 450,
         type: "mall",
         description: "A modern mall with shopping, dining, and entertainment under one roof.",
-        imageUrl: "https://images.unsplash.com/photo-1578926373983-5dbddf51b33c?fit=max&w=1080",
+        imageUrl: "https://plus.unsplash.com/premium_photo-1678903963276-8437f57a0f2e?q=80&w=2548&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -49,7 +49,7 @@ const locations = [
         totalParkingSpots: 600,
         type: "workspace",
         description: "A premium business hub with global companies and cafes.",
-        imageUrl: "https://images.unsplash.com/photo-1597062424614-1a3311d4e4ec?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1465447142348-e9952c393450?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -62,7 +62,7 @@ const locations = [
         totalParkingSpots: 700,
         type: "mall",
         description: "A bustling mall with shopping, dining, and multiplex options.",
-        imageUrl: "https://images.unsplash.com/photo-1518655140604-7850c4a78cf9?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1545256633-9d719bec17c6?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -75,7 +75,7 @@ const locations = [
         totalParkingSpots: 1000,
         type: "workspace",
         description: "An IT park with multinational companies and eco-friendly architecture.",
-        imageUrl: "https://images.unsplash.com/photo-1515444744556-3be4f8a16f54?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -88,7 +88,7 @@ const locations = [
         totalParkingSpots: 400,
         type: "mall",
         description: "A fashionable mall with premium brands and a vibrant food court.",
-        imageUrl: "https://images.unsplash.com/photo-1542831371-d531d36971e6?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1592885917389-d08696463166?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -101,7 +101,7 @@ const locations = [
         totalParkingSpots: 1200,
         type: "mall",
         description: "India's largest mall with a mix of shopping, dining, and entertainment.",
-        imageUrl: "https://images.unsplash.com/photo-1501426026826-31c667bdf23d?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1560840067-ddcaeb7831d2?q=80&w=2579&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -114,7 +114,7 @@ const locations = [
         totalParkingSpots: 800,
         type: "workspace",
         description: "An iconic IT workspace hosting tech giants and startups.",
-        imageUrl: "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1601646127541-9da3ad122647?q=80&w=2565&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -127,7 +127,7 @@ const locations = [
         totalParkingSpots: 900,
         type: "mall",
         description: "A luxurious mall with a mix of global brands and gourmet dining.",
-        imageUrl: "https://images.unsplash.com/photo-1579876513944-0bbf125b31f3?fit=max&w=1080",
+        imageUrl: "https://plus.unsplash.com/premium_photo-1680836316227-ef17dbbcfb27?q=80&w=2454&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },    
     {
@@ -140,7 +140,7 @@ const locations = [
         totalParkingSpots: 750,
         type: "mall",
         description: "A scenic mall located near a lake, offering premium shopping and dining options.",
-        imageUrl: "https://images.unsplash.com/photo-1533106418989-88406c7d027e?fit=max&w=1080",
+        imageUrl: "https://plus.unsplash.com/premium_photo-1715873997660-58bac3408a91?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -153,7 +153,7 @@ const locations = [
         totalParkingSpots: 850,
         type: "workspace",
         description: "A vibrant IT park hosting several multinational corporations.",
-        imageUrl: "https://images.unsplash.com/photo-1581091012184-9e4b5d12d4e5?fit=max&w=1080",
+        imageUrl: "https://plus.unsplash.com/premium_photo-1680281937048-735543c5c0f7?q=80&w=2522&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -166,7 +166,7 @@ const locations = [
         totalParkingSpots: 1200,
         type: "mall",
         description: "One of India's largest malls, offering a wide range of shopping and dining experiences.",
-        imageUrl: "https://images.unsplash.com/photo-1570872628283-f9e0c8d8a9ee?fit=max&w=1080",
+        imageUrl: "https://plus.unsplash.com/premium_photo-1694475199923-b8971f2d2d3e?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -179,7 +179,7 @@ const locations = [
         totalParkingSpots: 1100,
         type: "workspace",
         description: "A premium office space with modern amenities and excellent connectivity.",
-        imageUrl: "https://images.unsplash.com/photo-1561460312-18609834d622?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -192,7 +192,7 @@ const locations = [
         totalParkingSpots: 1000,
         type: "mall",
         description: "A modern mall with a mix of high-street fashion, retail, and food outlets.",
-        imageUrl: "https://images.unsplash.com/photo-1541233349642-6e425fe6190e?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1606005426472-d4503e8b1387?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {
@@ -205,7 +205,7 @@ const locations = [
         totalParkingSpots: 1300,
         type: "workspace",
         description: "An expansive IT park known for its cutting-edge facilities.",
-        imageUrl: "https://images.unsplash.com/photo-1542838687-0a4e3e49b4e6?fit=max&w=1080",
+        imageUrl: "https://images.unsplash.com/photo-1519748174344-16e5d53bda7a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         createdAt: new Date()
     },
     {

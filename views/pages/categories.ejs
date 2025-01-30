@@ -1,4 +1,3 @@
-<!-- <h3 class="inter">Search in</h3> -->
 <div class="maneuverBar">
     <div class="categories">
         <ul class="listOfCategories">
@@ -42,3 +41,48 @@
         </button>
     </div>
 </div>
+
+<ul class="spaceContainer">
+    <% for(let space of onlySpaces){ %> 
+
+        <div class="row"> 
+                <div class="spaceTextBg">
+                    <div class="spaceText poppins-regular">
+                        Type: <%= space.type %>
+                        <br>
+                        Parking spots: <%= space.totalParkingSpots %>
+                        <br>
+                        Description: <%= space.description %>    
+                    </div>
+                </div>
+                
+                
+                <a class="" href="/listings/show/<%= space._id %>">
+                    <div class="imageContainer">
+                        <img src="<%= space.imageUrl %>" class="card-img-top image" alt="space image">
+                         
+                    </div>   
+                </a>
+            
+            <li class="listOfNames">
+                <a class="poppins-regular spaceName" href="/listings/show/<%= space._id %>">
+                    <%= space.name %>
+                </a>
+                
+                <div class="spaceAddress poppins-regular">
+                    <%= space.address %>
+                </div>
+                
+                <div class="spaceState poppins-regular">
+                    <%= space.state %>
+                </div>
+            </li>                   
+        </div>
+    
+    <% } %>
+</ul>
+
+<hr class="horizontalLine">
+
+
+<script src="/static/js/categories.js"></script>
