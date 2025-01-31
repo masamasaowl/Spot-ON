@@ -1,6 +1,46 @@
 console.log("path is working");
 
-// ================= Home =================
+// ======================== Home =========================
+
+
+// ===================== Track scroll of video ================
+
+
+let lastScrollY = 0;
+function updateVideoSize(){
+
+    // as we scroll scrollY increases
+    let scrollPosition = window.scrollY;
+    let heroVideo = document.querySelector(".heroVideo");
+
+    // trigger only when scrolled past 100px
+    // Math.abs is for absolute value
+    if(scrollPosition  > 160){
+        let adjustedScroll = scrollPosition - 160;
+        // using Math.min we subtract the width depending on scrollY
+        // the math min function selects the smallest value 
+        // eg: for 50px it returns 5 so (5,10), after 100px only 10 gets selected as it is the smallest one
+        let newWidth = 100 - Math.min(adjustedScroll / 50, 12);
+        let newBorderRadius = Math.min(adjustedScroll / 10, 30);
+
+        heroVideo.style.width = newWidth + "%";
+        heroVideo.style.borderRadius = newBorderRadius + "px";
+
+        // we store the last scroll position
+        lastScrollY = scrollPosition;
+    } else{
+        heroVideo.style.width = "100%"
+    } 
+    
+    // better than window.addEventListener("scroll"); 
+    // it runs only when the next frame is required improving performance 
+    // it calls the function on loop for each change
+    requestAnimationFrame(updateVideoSize);
+}
+// call the function
+updateVideoSize();
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -189,8 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let mapContainer = document.querySelector(".mapContainer");
                 mapContainer.classList.remove("hidden");
 
-                // calling Google Maps when option is clicked
-                
+                // calling Google Maps when option is clicked  
                 let destinationLocation = {
                     latVal: latitude[index],
                     longVal: longitude[index]
@@ -247,7 +286,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let timePeriod = document.querySelector(".timePeriod");
     let timePanel = document.querySelector("#timePanel");
     let listOfTimings = document.querySelector(".listOfTimings");
-    let aroundPeriod = document.querySelector("#aroundPeriod");
+    let timings = document.querySelectorAll(".timings");
+    
+    timings.forEach((timing) => {
+        timing.addEventListener('click', (e) => {
+            let chosenValue = e.target.innerText;
+            timePeriod.value = chosenValue; 
+            listOfTimings.classList.add('hidden');
+        });
+    })
     
     timePeriod.addEventListener("click", async() => {
         // for search text
@@ -317,7 +364,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================================================
 
+
+    // ============= functioning of Get started button ==========
+    let getStarted = document.querySelector(".getStarted");
+    let expandDropdown = document.querySelector(".expandDropdown");
+
+    getStarted.addEventListener("click", () => {
+        expandDropdown.classList.remove("hidden");
+
+        getStarted.style
+    });
+
+
+
+    // =============== closing all opened menus ==============
+    
+    // it detects all events
+    document.addEventListener("click", function (event) {
+
+        // a collective variable for all appearing menus
+        let menus = document.querySelectorAll(".expandDropdown, .listOfSpaces,.listOfTimings ");
+
+        // a collective variable for all trigger buttons
+        let buttons = document.querySelectorAll(".getStarted, .searchbar, .timePeriod"); 
+
+        // Array.from(menus).some(...) checks all menus
+        // if click was on the menu it is stored as true
+        let clickedInsideMenu = Array.from(menus).some(menu => menu.contains(event.target));
+
+        // same for buttons
+        let clickedButton = Array.from(buttons).some(button => button.contains(event.target));
+        
+        // if neither the button nor the menu was clicked then the menu is hidden
+        if (!clickedInsideMenu && !clickedButton) {
+          menus.forEach(menu => menu.classList.add("hidden"));
+        }
+      });
+
+    //   ====================================================
+
 }); 
+
 
 
 

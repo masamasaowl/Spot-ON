@@ -1,7 +1,13 @@
 console.log("categories.js is working");
 
-// the cards begin to load
+
 document.addEventListener('DOMContentLoaded', () => {
+    // ================ spaces button ===================
+    let spacesBtn = document.querySelector(".spacesBtn");
+    spacesBtn.style.color = "rgb(30, 41, 59)";
+    spacesBtn.style.borderBottom = "2px solid rgb(30, 41, 59)"; 
+
+
     // ===========  function to fetch the spaces from the database send to route /searchSpaces =============
 
     // two functions to fetch the spaces containing array
@@ -27,23 +33,4 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     showSpaces();
 
-
-    // ================= functioning of hover on cards ===========
-
-    let spaceText = document.querySelectorAll(".spaceText");
-    let spaceTextBg = document.querySelectorAll(".spaceTextBg");
-    let imageContainer =document.querySelectorAll(".imageContainer");
-    
-    // imageContainer.forEach((image, index) => {
-    //     image.addEventListener("mouseover", () => {
-    //         spaceText[index].classList.remove("hidden");
-    //         spaceTextBg[index].classList.remove("hidden");
-    //     });
-    //     image.addEventListener("mouseout", () => {
-    //         spaceText[index].classList.add("hidden");
-    //         spaceTextBg[index].classList.add("hidden");
-    //     });
-
-    // });
-    
 });

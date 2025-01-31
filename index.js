@@ -76,3 +76,21 @@ app.get("/entertainment", async(req,res) => {
 
   res.json(onlyEntertainment);
 });
+
+
+// ====================== Show route ======================
+app.get("/spaces/show/:id", async(req,res) => {
+  let {id} = req.params;
+
+  let space = await Space.findById(id);
+
+  res.render("show.ejs", {space});
+});
+
+
+
+
+// privacy policy
+app.get("/privacy", (req,res) => {
+  res.render("privacyPolicy")
+})

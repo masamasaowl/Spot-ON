@@ -1,8 +1,9 @@
+<h2 class="inter">Go fast. Go far.</h2>
 <div class="maneuverBar">
     <div class="categories">
         <ul class="listOfCategories">
             <li >
-                <button class="poppins-regular">
+                <button class="poppins-regular spacesBtn">
                     Spaces
                 </button>
             </li>
@@ -35,9 +36,9 @@
     </div>
     
     <div class="filterBox">
-        <button class="filter">
+        <button class="filter poppins-regular">
             <i class="fa-solid fa-sliders"></i>
-            Filters
+            &nbsp;Filters
         </button>
     </div>
 </div>
@@ -57,7 +58,7 @@
                 </div>
                 
                 
-                <a class="" href="/listings/show/<%= space._id %>">
+                <a class="" href="/spaces/show/<%= space._id %>">
                     <div class="imageContainer">
                         <img src="<%= space.imageUrl %>" class="card-img-top image" alt="space image">
                          
@@ -65,7 +66,7 @@
                 </a>
             
             <li class="listOfNames">
-                <a class="poppins-regular spaceName" href="/listings/show/<%= space._id %>">
+                <a class="poppins-regular spaceName" href="/spaces/show/<%= space._id %>">
                     <%= space.name %>
                 </a>
                 
@@ -82,7 +83,9 @@
     <% } %>
 </ul>
 
-<hr class="horizontalLine">
+
+
+<div class="horizontalLine"></div>
 
 
 <script src="/static/js/categories.js"></script>
