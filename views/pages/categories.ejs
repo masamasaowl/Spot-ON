@@ -1,35 +1,36 @@
-<h2 class="inter">Go fast. Go far.</h2>
-<div class="maneuverBar">
+<h2 class="inter fadeIn categoriesWelcome">Go far. Go fast.</h2>
+
+<div class="maneuverBar fadeIn">
     <div class="categories">
         <ul class="listOfCategories">
             <li >
-                <button class="poppins-regular spacesBtn">
+                <button id="category" class="categoryBtn poppins-regular clickedBtn" data-name="Spaces">
                     Spaces
                 </button>
             </li>
             <li >
-                <button class="poppins-regular">
+                <button id="category" class="categoryBtn poppins-regular" data-name="Entertainment">
                     Entertainment
                 </button>
             </li>
             <li >
-                <button class="poppins-regular">
+                <button id="category" class="categoryBtn poppins-regular" data-name="Travel">
                     Travel
                 </button>
             </li>
             <li >
-                <button class="poppins-regular">
+                <button id="category" class="categoryBtn poppins-regular" data-name="Stays">
                     Stays
                 </button>
             </li>
             <li >
-                <button class="poppins-regular">
-                    Care
+                <button id="category" class="categoryBtn poppins-regular" data-name="Institutions">
+                    Institutions
                 </button>
             </li>
             <li >
-                <button class="poppins-regular">
-                    Apartments
+                <button id="category" class="categoryBtn poppins-regular" data-name="Care">
+                    Care
                 </button>
             </li>
         </ul>
@@ -43,7 +44,7 @@
     </div>
 </div>
 
-<ul class="spaceContainer">
+<ul id="dataContainer" class="spaceContainer fadeIn">
     <% for(let space of onlySpaces){ %> 
 
         <div class="row"> 

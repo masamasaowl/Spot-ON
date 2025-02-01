@@ -4,8 +4,6 @@ console.log("path is working");
 
 
 // ===================== Track scroll of video ================
-
-
 let lastScrollY = 0;
 function updateVideoSize(){
 
@@ -43,6 +41,34 @@ updateVideoSize();
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // =============== Fade In animation of elements =============
+    let fadeInElements = document.querySelectorAll(".fadeIn");
+
+    // function to perform the task
+    function fadeInOnScroll(){
+        fadeInElements.forEach((el) => {
+
+            // a special function that detects position of an element wrt viewport
+            let rect = el.getBoundingClientRect();
+             
+            // .top tells distance from top of element to top of viewport
+            if (rect.top < window.innerHeight * 0.85) { 
+                // trigger only when 85% visible
+                el.classList.add("show");
+            }
+        })
+    }
+
+    // when we scroll on window the fadeIn function is triggered as an event 
+    window.addEventListener("scroll", fadeInOnScroll);
+
+    // to avoid errors the landing page is checked once for the event by simply calling the function
+    fadeInOnScroll();
+
+   // ===================================================
+
+
 
     let listOfSpaces = document.querySelectorAll(".listOfSpaces");
     let searchbar = document.querySelector(".searchbar");

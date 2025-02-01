@@ -237,8 +237,8 @@ body{
 .searchResults{
     position: absolute;
     background-color: #ffcc00;
-    top: 80%;
-    left: 15%;
+    top: 120%;
+    left: 0;
     z-index: 100;
     border-radius: 35px;
     max-height: 400px;
@@ -249,7 +249,7 @@ body{
 .timeRange{
     position: absolute;
     background-color: #ffcc00;
-    top: 80%;
+    top: 120%;
     left: 45%;
     z-index: 100;
     border-radius: 35px;
@@ -280,9 +280,54 @@ body{
     margin-top: 3px;
 }
 
+/* Park it Right. */
+.heroVideo{
+    position: relative;
+    margin-top: 4rem;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* ensure it happens symmetrically */
+    transform: translateX(-50%);
+    transition: width 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), 
+    border-radius 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: width, border-radius;
+    z-index: -1;
+}
+.loopVideo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.videoText{
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    z-index: 1;
+    font-size: 5rem;
+    color: #F7F7F7;
+}
+
+
 
 /* ============== Categories.ejs ================ */
+.categoriesWelcome{
+    width: 90%;
+    margin: auto;
+    margin-top: 10rem;
+    font-size: 4rem;
+
+}
 .maneuverBar{
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -299,15 +344,19 @@ body{
     padding: 5px 10px;
     margin-top: 4px;
 }
-.listOfCategories li button{
+.categoryBtn{
     border: none;
-    color:#6a6a6a ;
+    color:rgb(106, 106, 106) ;
     height: 40px;
     background-color: #F7F7F7;
 }
-.listOfCategories li button:hover{
+.categoryBtn:hover{
     color: #212529;
     border-bottom: 2px solid rgb(106, 106, 106);
+}
+.clickedBtn{
+    color: rgb(30, 41, 59);
+    border-bottom: 2px solid rgb(30, 41, 59);
 }
 .filterBox{
     display: inline-block;
@@ -328,9 +377,8 @@ body{
 }
 
 
-
 .spaceContainer{
-    margin-bottom: 2.5rem;
+    margin-bottom: 4rem;
     padding: 0 30px;
     display: grid;
     grid-template-columns: repeat(4, 280px);
@@ -368,39 +416,6 @@ body{
 .image{
     object-fit: cover;
 }
-.heroVideo{
-    position: relative;
-    margin-top: 3rem;
-    top: 0;
-    left: 50%;
-    width: 100%;
-    height: 100vh;
-    border-radius: 0px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* ensure it happens symmetrically */
-    transform: translateX(-50%);
-    transition: width 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), 
-    border-radius 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-    will-change: width, border-radius;
-}
-.loopVideo{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-.videoText{
-    position: absolute;
-    top: 80%;
-    left: 5%;
-    z-index: 1;
-    font-size: 5rem;
-    color: #F7F7F7;
-}
 
 
 
@@ -412,7 +427,8 @@ body{
     width: 90%;
     margin: auto;
     justify-content: space-between;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
 }
 .addInfo ul{
     display: flex;
@@ -426,6 +442,7 @@ body{
 }
 .firstHalf{
     display: flex;
+    color: #6a6a6a;
 }
 .socialInfo i{
     font-size: 1.5rem;
@@ -542,3 +559,16 @@ body{
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
 }
+.fadeIn{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fadeIn.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+/* a delayed effect for all the children elements (ChatGPT) */
+.fadeIn:nth-child(1) { transition-delay: 0.1s; }
+.fadeIn:nth-child(2) { transition-delay: 0.3s; }
+.fadeIn:nth-child(3) { transition-delay: 0.5s; }
