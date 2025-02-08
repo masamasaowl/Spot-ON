@@ -48,24 +48,24 @@
     <% for(let space of onlySpaces){ %> 
 
         <div class="row"> 
-                <div class="spaceTextBg">
-                    <div class="spaceText poppins-regular">
-                        Type: <%= space.type %>
-                        <br>
-                        Parking spots: <%= space.totalParkingSpots %>
-                        <br>
-                        Description: <%= space.description %>    
-                    </div>
+            <div class="spaceTextBg">
+                <div class="spaceText poppins-regular">
+                    Type: <%= space.type %>
+                    <br>
+                    Parking spots: <%= space.totalParkingSpots %>
+                    <br>
+                    Description: <%= space.description %>    
                 </div>
-                
-                
-                <a class="" href="/spaces/show/<%= space._id %>">
-                    <div class="imageContainer">
-                        <img src="<%= space.imageUrl %>" class="card-img-top image" alt="space image">
-                         
-                    </div>   
-                </a>
+            </div>
             
+            
+            <a class="" href="/spaces/show/<%= space._id %>">
+                <div class="imageContainer">
+                    <img src="<%= space.imageUrl %>" class="cardImg image" alt="space image">
+                     
+                </div>   
+            </a>
+        
             <li class="listOfNames">
                 <a class="poppins-regular spaceName" href="/spaces/show/<%= space._id %>">
                     <%= space.name %>

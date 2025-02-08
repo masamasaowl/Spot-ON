@@ -381,7 +381,10 @@ body{
     margin-bottom: 4rem;
     padding: 0 30px;
     display: grid;
-    grid-template-columns: repeat(4, 280px);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin: auto;
 }
 .row{
     margin-top: 35px;
@@ -408,7 +411,7 @@ body{
     color: #6a6a6a;
     font-size: 0.8rem;
 }
-.card-img-top{
+.cardImg{
     width: 255px;
     height: 240px;
     border-radius: 10px;

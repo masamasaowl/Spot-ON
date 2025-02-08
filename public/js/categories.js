@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // try to mimic our previous EJS structure
             let row = document.createElement("div");
-            row.classList.add(".row");
+            row.classList.add("row");
 
             // our EJS code just replace <%= %> for ${} to input value
             row.innerHTML = `
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <a href="/spaces/show/${space._id}">
                     <div class="imageContainer">
-                        <img src="${space.imageUrl}" class="card-img-top image" alt="space image">
+                        <img src="${space.imageUrl}" class="cardImg image" alt="space image">
                     </div>
                 </a>
 
