@@ -47,16 +47,19 @@
 <ul id="dataContainer" class="spaceContainer fadeIn">
     <% for(let space of onlySpaces){ %> 
 
-        <div class="row"> 
-            <div class="spaceTextBg">
-                <div class="spaceText poppins-regular">
-                    Type: <%= space.type %>
-                    <br>
-                    Parking spots: <%= space.totalParkingSpots %>
-                    <br>
-                    Description: <%= space.description %>    
+        <div class="row">
+            <a href="/spaces/show/<%= space._id %>">
+                <div class="spaceTextBg">
+                    <div class="spaceText poppins-regular">
+                        Type: <%= space.type %>
+                        <br>
+                        Parking spots: <%= space.totalParkingSpots %>
+                        <br>
+                        Description: <%= space.description %>    
+                    </div>
                 </div>
-            </div>
+            </a> 
+            
             
             
             <a class="" href="/spaces/show/<%= space._id %>">

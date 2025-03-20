@@ -1,21 +1,27 @@
 // ================ BASIC SETUP =================
+if(process.env.NODE_ENV != "production"){
+  require('dotenv').config();
+}
 
 let express = require ("express");
 const app = express();
+// method-override
+const methodOverride = require ("method-override");
+const path = require("path");
+
+// error class
+const ExpressError = require("./utils/ExpressError.js");
+
 // Routes
 const homeRoutes = require("./routes/homeRoutes.js");
 const userRoutes = require("./routes/userRoutes.js");
 const spacesRoutes = require("./routes/spacesRoutes.js")
 
-const methodOverride = require ("method-override");
-const path = require("path");
-const mongoose = require('mongoose');
-require('dotenv').config();
-app.locals.googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
-
 // ejs-mate
 const ejsMate = require ("ejs-mate");
 
+// mongoose
+const mongoose = require('mongoose');
 
 // mongoDB setup
 async function main() {
@@ -66,6 +72,21 @@ app.use("/", userRoutes);
 // Spaces Routes
 app.use("/", spacesRoutes);
 
+
+// ================== Undefined Route ===================
+app.all("*", (req, res) => {
+  throw new ExpressError(404,'Page not found');
+});
+
+
+// ================ Error handling middlewares ================
+app.use((err,req,res,next)=>{
+  // give default values to status and message
+  let {statusCode = 500, message = "An Unknown error seems to have been occurred", name} = err;
+  
+  console.log(err.stack);
+  res.status(statusCode).render("error.ejs", {statusCode, message, name})
+});
 
 
 

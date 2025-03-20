@@ -1,0 +1,18 @@
+<% layout("../layouts/boilerplate.ejs") %>
+
+<h2 class="newListings-title poppins-regular">We welcome you on this new experience</h2>
+
+<form class="createForm" method="POST" action="/signup" novalidate>
+
+    <p>Username</p>
+    <input class="inputBox poppins-regular" type="text" name="username" placeholder="your username" required>
+
+    <p>Email</p>
+    <input class="inputBox poppins-regular" type="email" name="email" placeholder="your email" required>
+
+    <p>Password</p>
+    <input class="inputBox poppins-regular" type="password" name="password" placeholder="your password" required>
+
+    <button type="submit" class="poppins-regular createBtn button">Sign up!</button>
+
+</form>
