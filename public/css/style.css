@@ -112,6 +112,10 @@ body{
     background-color: #ffcc00;
     transition: background-color 0.2s ease-in-out;
 }
+.getStartedBtn{
+    text-decoration: none;
+    color: #1E293B;
+}
 .expandDropdown{
     position: fixed;
     top: 12%;
