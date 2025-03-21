@@ -20,6 +20,16 @@ const spacesRoutes = require("./routes/spacesRoutes.js")
 // ejs-mate
 const ejsMate = require ("ejs-mate");
 
+// sessions
+const session = require("express-session");
+
+// flash
+const flash = require("connect-flash");
+
+// passport
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+
 // mongoose
 const mongoose = require('mongoose');
 

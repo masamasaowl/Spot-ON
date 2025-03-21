@@ -1,18 +1,35 @@
 <% layout("../layouts/boilerplate.ejs") %>
 
-<h2 class="newListings-title poppins-regular">We welcome you on this new experience</h2>
+<div class="loginPage fadeIn">
+    <div class="videoHalf">
+        <video autoplay loop muted playsinline class="loopVideo fadeIn" >
+            <source src="/static/videos/heroVideo1080.mp4" type="video/mp4" >
+        </video>
 
-<form class="createForm" method="POST" action="/signup" novalidate>
+        <div class="loginVideoText inter">
+            PARK IT
+            <br>
+            YOUR WAY.
+        </div>
+    </div>
 
-    <p>Username</p>
-    <input class="inputBox poppins-regular" type="text" name="username" placeholder="your username" required>
 
-    <p>Email</p>
-    <input class="inputBox poppins-regular" type="email" name="email" placeholder="your email" required>
+    <nav class="formHalf">
+        <h2 class="newListings-title poppins-regular">We welcome you on this new experience</h2>
 
-    <p>Password</p>
-    <input class="inputBox poppins-regular" type="password" name="password" placeholder="your password" required>
-
-    <button type="submit" class="poppins-regular createBtn button">Sign up!</button>
-
-</form>
+        <form class="createForm" method="POST" action="/signup" novalidate>
+        
+            <p>Username</p>
+            <input class="inputBox poppins-regular" type="text" name="username" placeholder="your username" required>
+        
+            <p>Email</p>
+            <input class="inputBox poppins-regular" type="email" name="email" placeholder="your email" required>
+        
+            <p>Password</p>
+            <input class="inputBox poppins-regular" type="password" name="password" placeholder="your password" required>
+        
+            <button type="submit" class="poppins-regular createBtn button">Sign up!</button>
+        
+        </form>
+    
+</div>

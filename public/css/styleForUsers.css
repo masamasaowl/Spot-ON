@@ -13,13 +13,14 @@
 }
 .createForm input{
     display: block;
-    height: 40px;
+    height: 50px;
     width: 100%;
     margin-bottom: 15px;
     border-radius: 7px;
     padding: 7px;
     color: #0d0d11e5;
     border: 1px solid #acabab;
+    font-size: 0.9rem;
 }
 .createForm textarea{
     height: 100px;
@@ -37,4 +38,45 @@
 }
 #comment{
     padding: 0.5rem;
+}
+.createBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bababa;
+    width: 100%;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #F7F7F7;
+    font-size: 1rem;
+}
+.createBtn:hover{
+    border: 1px solid #6a6a6a;
+    background-color: #ffcc00;
+    transition: background-color 0.2s ease-in-out;
+}
+.signupBtn{
+    width: 70%;
+    margin: auto;
+}
+
+/* ====================== Login Form ====================== */
+.loginPage{
+    display: flex;
+    height: 100vh;
+}
+.videoHalf{
+    width: 50%;
+    background-color: #ffcc00;
+}
+.formHalf{
+    width: 50%;
+}
+.loginVideoText{
+    position: absolute;
+    top: 33%;
+    left: 5%;
+    z-index: 1;
+    font-size: 4rem;
+    color: #F7F7F7;
 }

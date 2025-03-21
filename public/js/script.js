@@ -2,73 +2,7 @@ console.log("path is working");
 
 // ======================== Home =========================
 
-
-// ===================== Track scroll of video ================
-let lastScrollY = 0;
-function updateVideoSize(){
-
-    // as we scroll scrollY increases
-    let scrollPosition = window.scrollY;
-    let heroVideo = document.querySelector(".heroVideo");
-
-    // trigger only when scrolled past 100px
-    // Math.abs is for absolute value
-    if(scrollPosition  > 160){
-        let adjustedScroll = scrollPosition - 160;
-        // using Math.min we subtract the width depending on scrollY
-        // the math min function selects the smallest value 
-        // eg: for 50px it returns 5 so (5,10), after 100px only 10 gets selected as it is the smallest one
-        let newWidth = 100 - Math.min(adjustedScroll / 50, 12);
-        let newBorderRadius = Math.min(adjustedScroll / 10, 30);
-
-        heroVideo.style.width = newWidth + "%";
-        heroVideo.style.borderRadius = newBorderRadius + "px";
-
-        // we store the last scroll position
-        lastScrollY = scrollPosition;
-    } else{
-        heroVideo.style.width = "100%"
-    } 
-    
-    // better than window.addEventListener("scroll"); 
-    // it runs only when the next frame is required improving performance 
-    // it calls the function on loop for each change
-    requestAnimationFrame(updateVideoSize);
-}
-// call the function
-updateVideoSize();
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
-
-    // =============== Fade In animation of elements =============
-    let fadeInElements = document.querySelectorAll(".fadeIn");
-
-    // function to perform the task
-    function fadeInOnScroll(){
-        fadeInElements.forEach((el) => {
-
-            // a special function that detects position of an element wrt viewport
-            let rect = el.getBoundingClientRect();
-             
-            // .top tells distance from top of element to top of viewport
-            if (rect.top < window.innerHeight * 0.85) { 
-                // trigger only when 85% visible
-                el.classList.add("show");
-            }
-        })
-    }
-
-    // when we scroll on window the fadeIn function is triggered as an event 
-    window.addEventListener("scroll", fadeInOnScroll);
-
-    // to avoid errors the landing page is checked once for the event by simply calling the function
-    fadeInOnScroll();
-
-   // ===================================================
-
-
 
     let listOfSpaces = document.querySelectorAll(".listOfSpaces");
     let searchbar = document.querySelector(".searchbar");
@@ -130,28 +64,32 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     // now we apply the two functions when the searchbar is clicked 
-    searchbar.addEventListener("input", async() => {
 
-        // when data is reinducted then the options reappear
-        listOfSpaces[0].classList.remove('hidden');
+    if(searchbar){
+        searchbar.addEventListener("input", async() => {
 
-        // retrieve the case insensitive value of spaces
-        const query = searchbar.value.trim().toLowerCase();
+            // when data is reinducted then the options reappear
+            listOfSpaces[0].classList.remove('hidden');
     
-        // fetch the values
-        const spaces = await fetchSpaces();
+            // retrieve the case insensitive value of spaces
+            const query = searchbar.value.trim().toLowerCase();
+        
+            // fetch the values
+            const spaces = await fetchSpaces();
+        
+            // now filter the response then in an arrow function we take the case insensitive name 
+            // .include() compares the space.name with the query being type on the searchbar 
+            const filteredSpaces = spaces.filter((space) =>
+                space.name.toLowerCase().includes(query)
+            );
+            console.log("input received ");
+        
+            // call to render the dropdown
+            renderDropdown(filteredSpaces);
+        });
     
-        // now filter the response then in an arrow function we take the case insensitive name 
-        // .include() compares the space.name with the query being type on the searchbar 
-        const filteredSpaces = spaces.filter((space) =>
-            space.name.toLowerCase().includes(query)
-        );
-        console.log("input received ");
+    }
     
-        // call to render the dropdown
-        renderDropdown(filteredSpaces);
-    });
-
     // ========================================================
 
 
@@ -164,46 +102,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // addition of search text with the searchIcon
-    searchbar.addEventListener("click", async() => {
 
-        listOfSpaces[0].classList.remove("hidden");
+    if(searchbar){
+        searchbar.addEventListener("click", async() => {
 
-        // for search text
-        let nbsp = document.querySelector(".nbsp");
-        nbsp.classList.remove("hidden");
-
-        // the search text appears only once
-        if(!searchIcon.innerText.includes("Search")){
-            searchIcon.append("Search");
-            searchIcon.classList.remove("searchIcon");
-            searchIcon.classList.add("searchIconContainer");
-        }
-        
-        // // now an additional margin appears so to remove it 
-        // let whereLayer = document.querySelector(".whereLayer");
-        // whereLayer.style.margin = "0";
-
-        // add the styling of searchPanel
-        searchPanel.classList.add("searchResults");
-
-        // add default list when bar is clicked 
-        let defaultSuggestions = await fetchSpaces();
+            listOfSpaces[0].classList.remove("hidden");
     
-        // using map we store all the names in a variable 
-        const names = defaultSuggestions.map(space => space.name);
-        // console.log(names);
-
-        // store all the types too
-        const type = defaultSuggestions.map(space => space.type);
-        // console.log(type);
+            // for search text
+            let nbsp = document.querySelector(".nbsp");
+            nbsp.classList.remove("hidden");
+    
+            // the search text appears only once
+            if(!searchIcon.innerText.includes("Search")){
+                searchIcon.append("Search");
+                searchIcon.classList.remove("searchIcon");
+                searchIcon.classList.add("searchIconContainer");
+            }
+            
+            // // now an additional margin appears so to remove it 
+            // let whereLayer = document.querySelector(".whereLayer");
+            // whereLayer.style.margin = "0";
+    
+            // add the styling of searchPanel
+            searchPanel.classList.add("searchResults");
+    
+            // add default list when bar is clicked 
+            let defaultSuggestions = await fetchSpaces();
         
-        const latitude = defaultSuggestions.map(space => space.location.coordinates[1]);
-        const longitude = defaultSuggestions.map(space => space.location.coordinates[0]);
-        
-
-        // call showSuggestions function
-        showSuggestions(names, type, latitude, longitude);
-    });
+            // using map we store all the names in a variable 
+            const names = defaultSuggestions.map(space => space.name);
+            // console.log(names);
+    
+            // store all the types too
+            const type = defaultSuggestions.map(space => space.type);
+            // console.log(type);
+            
+            const latitude = defaultSuggestions.map(space => space.location.coordinates[1]);
+            const longitude = defaultSuggestions.map(space => space.location.coordinates[0]);
+            
+    
+            // call showSuggestions function
+            showSuggestions(names, type, latitude, longitude);
+        });
+    }
+    
 
     // a function to showcase the default suggestions
     function showSuggestions (suggestions, types, latitude, longitude){
@@ -262,7 +204,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 console.log(destinationLocation);
 
+// ======================= Use maps ==========================
+
                 // initMap(destinationLocation.latVal,destinationLocation.longVal);
+
+// =========================================================
 
                 optionClicked(searchbar.value);
 
@@ -288,20 +234,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // styling for Where to option
     let searchArea = document.querySelector(".searchArea");
 
-    where.addEventListener("click", () => {
-        // to make the other box visible
-        if(fore.style.backgroundColor = "rgb(247, 247, 247)"){
-            fore.style.backgroundColor = "rgba(215, 212, 213, 0)"
-            fore.style.boxShadow = "none";
-            listOfTimings.classList.add("hidden");
-        }
-
-        where.style.backgroundColor = "rgb(247, 247, 247)";
-        where.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
-        searchArea.style.backgroundColor = "rgba(215, 212, 213, 0.78)";
-        searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
-
-    });
+    if(where){
+        where.addEventListener("click", () => {
+            // to make the other box visible
+            if(fore.style.backgroundColor = "rgb(247, 247, 247)"){
+                fore.style.backgroundColor = "rgba(215, 212, 213, 0)"
+                fore.style.boxShadow = "none";
+                listOfTimings.classList.add("hidden");
+            }
+    
+            where.style.backgroundColor = "rgb(247, 247, 247)";
+            where.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
+            searchArea.style.backgroundColor = "rgba(215, 212, 213, 0.78)";
+            searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
+    
+        });
+    }
+    
 
     // =====================================================
 
@@ -322,38 +271,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })
     
-    timePeriod.addEventListener("click", async() => {
-        // for search text
-        let nbsp = document.querySelector(".nbsp");
-        nbsp.classList.remove("hidden");
 
-        // the search text appears only once
-        if(!searchIcon.innerText.includes("Search")){
-            searchIcon.append("Search");
-            searchIcon.classList.remove("searchIcon");
-            searchIcon.classList.add("searchIconContainer");
-        }
+    if(timePeriod){
+        timePeriod.addEventListener("click", async() => {
+            // for search text
+            let nbsp = document.querySelector(".nbsp");
+            nbsp.classList.remove("hidden");
+    
+            // the search text appears only once
+            if(!searchIcon.innerText.includes("Search")){
+                searchIcon.append("Search");
+                searchIcon.classList.remove("searchIcon");
+                searchIcon.classList.add("searchIconContainer");
+            }
+    
+            // add the styling of timePanel
+            timePanel.classList.add("timeRange");
+    
+            listOfTimings.classList.remove("hidden");
+        });
+    }
+    
 
-        // add the styling of timePanel
-        timePanel.classList.add("timeRange");
-
-        listOfTimings.classList.remove("hidden");
-    });
-
-    fore.addEventListener("click", () => {
-        // to make the other box visible
-        if(where.style.backgroundColor = "rgb(247, 247, 247)"){
-            where.style.backgroundColor = "rgba(215, 212, 213, 0)"
-            where.style.boxShadow = "none";
-            listOfSpaces[0].classList.add("hidden");
-        }
-
-        fore.style.backgroundColor = "rgb(247, 247, 247)";
-        fore.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
-        searchArea.style.backgroundColor = "rgba(215, 213, 213, 0.78)";
-        searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
-    });
-
+    if(fore){
+        fore.addEventListener("click", () => {
+            // to make the other box visible
+            if(where.style.backgroundColor = "rgb(247, 247, 247)"){
+                where.style.backgroundColor = "rgba(215, 212, 213, 0)"
+                where.style.boxShadow = "none";
+                listOfSpaces[0].classList.add("hidden");
+            }
+    
+            fore.style.backgroundColor = "rgb(247, 247, 247)";
+            fore.style.boxShadow = "1px 1px 6px rgba(0, 0, 0, 0.2)";
+            searchArea.style.backgroundColor = "rgba(215, 213, 213, 0.78)";
+            searchIcon.style.backgroundColor = "rgb(243, 197, 10)";
+        });
+    }
+    
 
 
     // ============= functioning of bookIt button =============
@@ -394,11 +349,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============= functioning of Get started button ==========
     let getStarted = document.querySelector(".getStarted");
     let expandDropdown = document.querySelector(".expandDropdown");
-
+    
     getStarted.addEventListener("click", () => {
         expandDropdown.classList.remove("hidden");
-
-        getStarted.style
     });
 
 
@@ -430,140 +383,3 @@ document.addEventListener('DOMContentLoaded', () => {
     //   ====================================================
 
 }); 
-
-
-
-
-// ================ Google Maps JS API (markers) ===============
-// Initialize and add the map
-let map;
-
-async function initMap(latitude, longitude) {
-  //  destination 
-  const position = { lat: latitude, lng: longitude};
-
-  // Request needed libraries.
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-  // The map   
-  map = new Map(document.getElementById("map"), {
-    zoom: 18,
-    center: position,
-    mapId: "DEMO_MAP_ID",
-  });
-
-  // The marker
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Destination",
-  });
-
-  // =============== To display the route ==============
-  let directionsService = new google.maps.DirectionsService();
-  let directionsRenderer = new google.maps.DirectionsRenderer();
-  directionsRenderer.setMap(map);
-  
-  try{
-    let userLocation = await fetchLocation();
-
-    if(userLocation){
-      await calculateAndDisplayRoute(directionsService,directionsRenderer,userLocation, position);
-      
-    } else{
-        alert("The algorithm might face some inaccuracies as location access was denied");
-    }
-  }
-  catch(err){
-    console.log(err);
-  }
-}
-// initMap();
-
-// =======================================================
-
-
-// ================== Browser Geolocation API ===================
-
-function fetchLocation(){
-    // the following method triggers a popup requesting for location permission
-    // it has three parameters which we treat as 3 functions
-    // navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);
-
-    return new Promise((resolve, reject) => {
-        // we return the location val as a promise
-        navigator.geolocation.getCurrentPosition(
-
-          // function 1
-          (position) => {
-            const userLocation = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
-            resolve(userLocation);
-          },
-
-          //  function 2 
-          (error) => {
-            switch (error.code) {
-              case error.PERMISSION_DENIED:
-                console.error("Location access denied by user");
-                break;
-              case error.POSITION_UNAVAILABLE:
-                console.error("Location information is unavailable");
-                break;
-              case error.TIMEOUT:
-                console.error("Location request timed out");
-                break;
-            }
-            reject(error);
-          },
-
-          // function 3 (options)  
-          {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 0,
-          }
-        );
-      });
-}
-
-// =========================================================
-
-
-
-// ============== Google Maps JS API (directions service) =======
-// use DirectionsService to calculate directions and directionsRenderer to showcase it
-
-async function calculateAndDisplayRoute(directionsService,directionsRenderer, userLocation, destinationLocation){
-    // the method directionsService.route() contains 
-    // 1. the directionsRequest object
-    // 2. the directionsResult function which we will use to call the directionsRenderer to showcase route
-
-    try{
-        const response = await directionsService.route({
-            origin: userLocation,
-            destination: destinationLocation,
-            travelMode: google.maps.TravelMode.DRIVING
-        });
-
-        if(response.status ===  "OK"){
-            directionsRenderer.setDirections(response);
-
-            // extract distance and duration from the response
-            const route = response.routes[0].legs[0];
-            const distance = route.distance.text;
-            const duration = route.duration.text;
-
-            console.log(`distance is ${distance} and time taken would be ${duration}`);
-
-        } else{
-            throw new Error(`Directions request failed with status: ${response.status}`);
-        }
-    } catch(err){
-        console.log(err);
-    }
-
-}
