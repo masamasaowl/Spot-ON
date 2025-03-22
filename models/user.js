@@ -1,7 +1,6 @@
-// schema for all the login details of the users
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// we use passportLocalMongoose to add username and password automatically in our DB
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = new Schema({

@@ -80,3 +80,10 @@
     font-size: 4rem;
     color: #F7F7F7;
 }
+
+
+/* ==================== flash.ejs ====================== */
+.flashText{
+    font-size: 1.1rem;
+    text-align: center;
+}
