@@ -23,6 +23,9 @@ const ejsMate = require ("ejs-mate");
 // sessions
 const session = require("express-session");
 
+// Mongo sessions store
+const MongoStore = require("connect-mongo");
+
 // flash
 const flash = require("connect-flash");
 
@@ -30,8 +33,15 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
+// users database
+const User = require('./models/user.js');
+
+
 // mongoose
 const mongoose = require('mongoose');
+
+// Mongo Atlas URL
+// const dbURL = process.env.MONGO_ATLAS_URL
 
 // mongoDB setup
 async function main() {
@@ -44,11 +54,56 @@ async function main() {
       console.error("Error connecting to the database:", err);
     };
 };
-
-// call the main func
+// call the main function
 main();
 
+// Sessions
+// Mongo Sessions Store
+// const store = MongoStore.create({
+//   mongoUrl: dbURL,
+//   crypto:{
+//     secret: process.env.SESSION_SECRET
+//   },
+//   touchAfter:24*3600,
+// });
 
+// store.on("error", () => {
+//   console.log("Error in MONGO SESSIONS STORE", err);
+// });
+
+
+const sessionOptions = {
+  // store: store,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true
+  },
+}
+app.use(session(sessionOptions));
+
+
+// passport middlewares
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// flash middlewares
+app.use(flash());
+app.use((req,res,next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.info = req.flash("info");
+  res.locals.currUser = req.user;
+  next();
+});
+
+// Request middlewares
 app.use(methodOverride("_method"));
 
 app.use(express.urlencoded({extended : true}));
