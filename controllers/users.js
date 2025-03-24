@@ -58,3 +58,14 @@ module.exports.logoutUser = (req,res,next) => {
     req.flash("success", "You have successfully logged out");
     res.redirect('/');
 };
+
+
+// =================== Profile route ================
+module.exports.showProfile = async(req,res,next) => {
+    let { id } = req.params;
+
+    let user = await User.findById(id);
+    console.log(user);
+
+    res.render("profile.ejs", { user });
+};

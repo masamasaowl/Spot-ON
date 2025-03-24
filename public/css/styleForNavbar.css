@@ -121,3 +121,14 @@
     background-size: cover;
     border-radius: 100px;
 }
+.profilePicture{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.profilePicture img{
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    border-radius: 100%;
+}

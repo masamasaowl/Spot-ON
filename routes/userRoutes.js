@@ -40,6 +40,9 @@ router
 router.get("/logout", userController.logoutUser);
 
 
+// ==================== User Profile =====================
+router.get("/profile/:id", wrapAsync(userController.showProfile));
+
 
 // ====================== Privacy policy =====================
 router.get("/privacy", (req,res) => {

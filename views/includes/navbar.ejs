@@ -40,11 +40,11 @@
 
         <% } %>     
 
-
     </div>
     
 </div>
  <div class="expandDropdown hidden">
+    
     <ul class="getStartedList poppins-regular">
         <% if(!currUser){ %>
             <i class="fa-solid fa-circle-user navIcon"></i>
@@ -64,7 +64,7 @@
         <% if(currUser){ %>
             <i class="fa-solid fa-circle-user navIcon"></i>
             &nbsp;
-            <a href="/profile">
+            <a href="/profile/<%= currUser._id %>">
                 <li>Your profile</li>
             </a>
 
