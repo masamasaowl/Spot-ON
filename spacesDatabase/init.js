@@ -1,26 +1,27 @@
+require('dotenv').config();
+
 const mongoose = require("mongoose");
 const initData = require("./allData.js");
 const Space = require("../models/spaces.js");
 
+const dbURL = process.env.MONGO_ATLAS_URL
+console.log(dbURL);
+
+// mongoDB setup
 async function main() {
     try {
-      await mongoose.connect("mongodb://127.0.0.1:27017/spotOn", {
-
-        // the below configuration improves the db structure and compatibility
-        useNewUrlParser: true,
-      });
+      await mongoose.connect(dbURL);
 
       console.log("connection successful");
-  
-    // await initialization of database
+
       await initDB();
 
     } catch (err) {
       console.error("Error connecting to the database:", err);
-
+    }
     // close the connection
-    } finally {
-      mongoose.connection.close(); 
+     finally {
+    mongoose.connection.close(); 
     }
 };
 

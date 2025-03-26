@@ -41,12 +41,12 @@ const User = require('./models/user.js');
 const mongoose = require('mongoose');
 
 // Mongo Atlas URL
-// const dbURL = process.env.MONGO_ATLAS_URL
+const dbURL = process.env.MONGO_ATLAS_URL
 
 // mongoDB setup
 async function main() {
     try {
-      await mongoose.connect("mongodb://127.0.0.1:27017/spotOn");
+      await mongoose.connect(dbURL);
 
       console.log("connection successful");
 
@@ -59,21 +59,21 @@ main();
 
 // Sessions
 // Mongo Sessions Store
-// const store = MongoStore.create({
-//   mongoUrl: dbURL,
-//   crypto:{
-//     secret: process.env.SESSION_SECRET
-//   },
-//   touchAfter:24*3600,
-// });
+const store = MongoStore.create({
+  mongoUrl: dbURL,
+  crypto:{
+    secret: process.env.SESSION_SECRET
+  },
+  touchAfter:24*3600,
+});
 
-// store.on("error", () => {
-//   console.log("Error in MONGO SESSIONS STORE", err);
-// });
+store.on("error", () => {
+  console.log("Error in MONGO SESSIONS STORE", err);
+});
 
 
 const sessionOptions = {
-  // store: store,
+  store: store,
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
@@ -120,7 +120,6 @@ app.set(express.static(path.join(__dirname, "public")));
 app.use('/static', express.static('public'));
 
 const port = 8080;
-
 app.listen(port, () => {
     console.log("App is listening on port : 8080")
 });
@@ -154,6 +153,8 @@ app.use((err,req,res,next)=>{
   res.status(statusCode).render("error.ejs", {statusCode, message, name})
 });
 
+
+// ===================== Python Script ======================
 
 
 
