@@ -1,18 +1,81 @@
 /* the button is in home.ejs */
+.probabilityLoadingVid{
+    height: 120vh;
+}
+.showProbability{
+    height: 120vh;
+    width: 90%;
+    margin: auto;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+.probabilityContainer{
+    display: flex;
+    flex-direction: column;
+}
+.aboutTheResult{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 8rem;
+}
+.aboutTheResult h2{
+    font-size: 5rem;
+}
+.aboutTheResult h5{
+    font-size: 1.5rem;
+}
+.probabilityNumber{
+    display: inline;
+    color: #ffcc00;
+    font-weight: 700;
+}
+.bookItText{
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
 .checkProbabilityBtn{
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #bababa;
-    width: 25%;
+    width: 20%;
     margin: auto;
     height: 60px;
     border-radius: 20px;
     background-color: #F7F7F7;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 .checkProbabilityBtn:hover{
-    border: 1px solid #6a6a6a;
+    border: 2px solid #2a2a2a;
     background-color: #ffcc00;
     transition: background-color 0.2s ease-in-out;
 }
+.bookItNowBtn{
+    text-decoration: none;
+}
+
+.resultContainer{
+    width: 45%;
+    margin-top: 5rem;
+}
+.resultContainer h4{
+    font-size: 2rem;
+}
+.resultContainer p{
+    font-size: 1.2rem;
+}
+.parkingAvailability{
+    margin-top: 15vh;
+}
+.parking-status{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+

@@ -10,5 +10,6 @@ const spacesRoutesController = require("../controllers/spaces.js")
 // ====================== Show route ======================
 router.get("/spaces/show/:id",wrapAsync(spacesRoutesController.showSpaces)) ;
 
+router.get("/bookSpaces", wrapAsync(spacesRoutesController.bookTheSpace));
 
 module.exports = router;

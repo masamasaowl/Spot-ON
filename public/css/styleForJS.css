@@ -4,6 +4,9 @@
 .hidden{
     display: none;
 }
+#hidden{
+    display: none;
+}
 .searchIconContainer{
     display: flex;
     justify-content: center;

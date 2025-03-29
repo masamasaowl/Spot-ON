@@ -5,7 +5,6 @@ const Space = require("../models/spaces.js");
 module.exports.home = async(req,res) => {
     // fetch only spaces at first to display on homepage
     let onlySpaces = await Space.find({type: {$in: ["mall", "workspace"]}});
-      
     res.render("home.ejs", {onlySpaces, googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY});
 };
 

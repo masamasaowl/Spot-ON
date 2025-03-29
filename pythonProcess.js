@@ -27,11 +27,14 @@ function startPythonProcess(io){
           const [freeSpaces, occupiedSpaces] = output.split(','); 
       
           console.log(`Free Spaces: ${freeSpaces}, Occupied Spaces: ${occupiedSpaces}`);
+
+          let probability = 50;
       
           // Send data to front-end i.e. home.ejs
           io.emit("parkingData", {
             freeSpaces: parseInt(freeSpaces),
             occupiedSpaces: parseInt(occupiedSpaces),
+            probability: parseInt(probability),
           });
       
           // Update print time

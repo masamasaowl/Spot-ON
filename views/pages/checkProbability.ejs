@@ -1,19 +1,51 @@
 <!-- The loading video -->
 <div class="probabilityLoadingVid hidden">
     <video autoplay muted playsinline class="loopVideo fadeIn" >
-        <source src="/static/videos/probabilityLoading@clean.mp4" type="video/mp4">
+        <source src="/static/videos/probabilityLoading.mp4" type="video/mp4">
 
     </video>
 </div>
 
 
-<div class="showProbability ">
-    Oh no 
-    <div class="container">
-        <h1>Parking Availability</h1>
-        <div class="parking-status">
-            <p>Free Spaces: <span id="free-spaces">0</span></p>
-            <p>Occupied Spaces: <span id="occupied-spaces">0</span></p>
+<div class="hidde showProbability fadeIn">
+
+    <div class="aboutTheResult ">
+
+        <h2 class="inter">YES!</h2>
+        <h5 class="poppins-regular">There is a <p class="probabilityNumber poppins-regular">75.8%</p>&nbsp;chance of you getting a parking space at Phoenix Market City!</h5>
+    </div>
+    
+    <p class="poppins-regular bookItText">Save your spot now.</p>
+    <a class="bookItNowBtn" href="/bookSpaces">
+        <button class="checkProbabilityBtn poppins-regular">Book it</button>
+    </a>
+    
+    
+    
+
+    <div class="probabilityContainer ">
+
+        <div class="resultContainer ">
+            <h4 class="inter">How our Algorithm predicted it for you.</h4>
+            <p class="poppins-regular ">Save engineering time with unified payments functionality. We obsess over the maze of gateways, payments rails, and financial institutions that make up the global economic landscape so that your teams can build what you need on one platform.</p>
         </div>
+        
+
+        <div class="parkingAvailability">
+            <h3 class="inter">Parking Availability</h3>
+            <div class="parking-status">
+                <p class="poppins-regular">Free Spaces: <span id="free-spaces">0</span></p>
+                <p class="poppins-regular">Occupied Spaces: <span id="occupied-spaces">0</span></p>
+                <p class="poppins-regular">Probability: <span id="probability">0</span>%</p>
+            </div>
+        </div>
+        
     </div> 
+    
 </div>
+
+
+
+
+
+

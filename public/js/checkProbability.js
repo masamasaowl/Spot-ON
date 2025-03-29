@@ -17,3 +17,7 @@ checkProbabilityBtn.addEventListener("click", () => {
     }, 1650)
     
 });
+
+
+
+
