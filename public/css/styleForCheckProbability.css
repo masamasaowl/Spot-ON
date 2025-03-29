@@ -1,0 +1,18 @@
+/* the button is in home.ejs */
+.checkProbabilityBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bababa;
+    width: 25%;
+    margin: auto;
+    height: 60px;
+    border-radius: 20px;
+    background-color: #F7F7F7;
+    font-size: 1.2rem;
+}
+.checkProbabilityBtn:hover{
+    border: 1px solid #6a6a6a;
+    background-color: #ffcc00;
+    transition: background-color 0.2s ease-in-out;
+}

@@ -57,7 +57,20 @@ async function main() {
 // call the main function
 main();
 
-// Sessions
+
+// ====================== Web Socket ====================
+// Setup for creating a socket between the server and webpage
+const http = require('http');
+
+// Create HTTP server with Express app
+const server = http.createServer(app);
+const socketIo = require('socket.io');
+const io = socketIo(server);
+
+// Our Python process
+const startPythonProcess = require("./pythonProcess.js")
+
+// ======================= Sessions ==========================
 // Mongo Sessions Store
 const store = MongoStore.create({
   mongoUrl: dbURL,
@@ -86,14 +99,14 @@ const sessionOptions = {
 app.use(session(sessionOptions));
 
 
-// passport middlewares
+// ================== passport middlewares =================
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// flash middlewares
+// ================== flash middlewares ====================
 app.use(flash());
 app.use((req,res,next) => {
   // these are fetched in flash.ejs
@@ -104,7 +117,7 @@ app.use((req,res,next) => {
   next();
 });
 
-// Request middlewares
+// =================== Request middlewares ==================
 app.use(methodOverride("_method"));
 
 app.use(express.urlencoded({extended : true}));
@@ -119,12 +132,24 @@ app.set(express.static(path.join(__dirname, "public")));
 
 app.use('/static', express.static('public'));
 
-const port = 8080;
-app.listen(port, () => {
-    console.log("App is listening on port : 8080")
+
+// ==========================================================
+
+
+// ===================== Python Script ======================
+// Run python
+startPythonProcess(io);
+
+
+// ================== WebSocket connection ==================
+io.on('connection', (socket) => {
+  console.log('Client connected via WebSocket');
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
+  });
 });
 
-//  =============================================
 
 
 // ================= Routes ==================
@@ -154,8 +179,8 @@ app.use((err,req,res,next)=>{
 });
 
 
-// ===================== Python Script ======================
-
-
-
-
+// ======================= Port ========================
+const port = 8080;
+server.listen(port, () => {
+    console.log("App is listening on port : 8080")
+});

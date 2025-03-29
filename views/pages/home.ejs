@@ -1,7 +1,6 @@
 <% layout("../layouts/boilerplate.ejs") %>
 
 <body>
-
     <div class="background">
         <div class="heroSection">
             
@@ -31,12 +30,22 @@
         
                         <ul class="listOfSpaces hidden">
                             <p class="poppins-regular hidden" id="suggestions"> Suggested destinations</p>
-                       
+
+                            <li class="suggestionStyle">
+                                <i class="fa-solid fa-location-dot">       
+                                </i>
+                                <div class="suggestionContainer">
+                                    <div class="locationName poppins-regular">
+                                        The Spot On
+                                    </div>
+                                    <div class="locationType poppins-regular">
+                                        test case ( just for you )
+                                    </div>
+                                </div>
+                            </li>      
                         </ul>
                     </div>
-                    
                 </div>
-                
             </div>
     
             <div class="verticalLine"></div>
@@ -92,29 +101,39 @@
      
         </div>
 
-        <p class="enterLocation hidden">*Your location would help us showcase probabilistic data </p>
 
-        <div class="locationArea hidden">
-            <div class="location">
-                <p class="poppins-regular whereText">Location</p>
-                <input class="yourLocation poppins-regular" name="yourLocation" type="text" placeholder="Your location">
+        <!-- if the Test Case is selected -->
+        <%- include('../pages/theSpotOn.ejs') %>
 
-            </div>
+
+        <div class="afterSelection hidden">
+            <p class="enterLocation ">*Your location would help us showcase probabilistic data </p>
+
+            <div class="locationArea">
+                <div class="location">
+                    <p class="poppins-regular whereText">Location</p>
+                    <input class="yourLocation poppins-regular" name="yourLocation" type="text" placeholder="Your location">
     
-            <div class="locationIcon poppins-regular ">
-                <i class="fa-solid fa-location-crosshairs"></i>
+                </div>
+        
+                <div class="locationIcon poppins-regular ">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                </div>
+                
             </div>
-            
-        </div>
-    
-        <div class="mapContainer hidden">
-            <div id="map">
-            
+        
+            <div class="mapContainer">
+                <div id="map">
+                </div>
             </div>
+
+            <button class="checkProbabilityBtn popppins-regular ">Check Probalility</button>
         </div>
+
+        <%- include('../pages/checkProbability.ejs') %>
     </div>
 
-
+    
     <div class="heroVideo ">
         <video autoplay loop muted playsinline class="loopVideo fadeIn" >
             <source src="/static/videos/heroVideo1080.mp4" type="video/mp4" >
@@ -124,8 +143,8 @@
             PARK IT RIGHT.
         </div>
     </div>
-    
 
+    
     <%- include('../pages/categories.ejs') %>
 
     <!-- Google Maps -->

@@ -193,9 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 listOfSpaces[0].classList.add('hidden');
                 console.log(searchbar.value);
 
-                // map container is visible
-                let mapContainer = document.querySelector(".mapContainer");
-                mapContainer.classList.remove("hidden");
+                //The Map and location appear
+                let afterSelection = document.querySelector(".afterSelection");
+                afterSelection.classList.remove("hidden");
 
                 // calling Google Maps when option is clicked  
                 let destinationLocation = {
@@ -206,18 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ======================= Use maps ==========================
 
-                // initMap(destinationLocation.latVal,destinationLocation.longVal);
+                initMap(destinationLocation.latVal,destinationLocation.longVal);
 
 // =========================================================
 
                 optionClicked(searchbar.value);
-
-                // the location bar appears
-                let enterLocation = document.querySelector(".enterLocation");
-                let locationArea = document.querySelector(".locationArea");
-                enterLocation.classList.remove("hidden");
-                locationArea.classList.remove("hidden");
-
             });
             
             // add the suggestions to the list

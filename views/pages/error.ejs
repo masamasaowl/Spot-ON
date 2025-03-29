@@ -2,7 +2,12 @@
 
 <body>
 
-    <div class="errorContainer">
+    <div class="errorContainer fadeIn">
+        
+        <video autoplay loop muted playsinline class="loopVideo fadeIn" >
+            <source src="/static/videos/error page animation.mp4" type="video/mp4" >
+        </video>
+
         <h1>Oops! An error has occurred</h1>
         <h2 class="errorName"><%= name %></h2>
         <h3 class="statusCode">Error code: <%= statusCode %></h3>
