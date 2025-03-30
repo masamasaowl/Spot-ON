@@ -10,7 +10,7 @@ module.exports.showSpaces = async(req,res) => {
     res.render("show.ejs", {space});
 };
 
-module.exports.bookSpaces = async(req,res) =>{
+module.exports.bookTheSpace = async(req,res) =>{
  
-    res.render("bookSpace.ejs")
+    res.render("bookSpaces.ejs")
 };

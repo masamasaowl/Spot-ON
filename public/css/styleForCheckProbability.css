@@ -31,6 +31,7 @@
     display: inline;
     color: #ffcc00;
     font-weight: 700;
+    font-size: 1.9rem;
 }
 .bookItText{
     text-align: center;
@@ -70,12 +71,25 @@
     font-size: 1.2rem;
 }
 .parkingAvailability{
-    margin-top: 15vh;
+    margin-top: 10vh;
 }
 .parking-status{
     display: flex;
     justify-content: space-evenly;
     margin-top: 30px;
+}
+.statisticBox{
+    width: 40%;
+    margin-right: 30px;
+}
+.statisticBox span{
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 3px solid #ffcc00 ;
+}
+.algorithmDemo{
+    color: #ffcc00;
 }
 
 
