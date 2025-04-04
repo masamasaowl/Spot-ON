@@ -66,6 +66,7 @@ const http = require('http');
 const server = http.createServer(app);
 const socketIo = require('socket.io');
 const io = socketIo(server);
+const WebSocket = require('ws');
 
 // Our Python process
 const startPythonProcess = require("./pythonProcess.js")

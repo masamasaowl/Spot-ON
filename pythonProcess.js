@@ -28,7 +28,7 @@ function startPythonProcess(io){
       
           console.log(`Free Spaces: ${freeSpaces}, Occupied Spaces: ${occupiedSpaces}`);
 
-          let probability = 75.8
+          let probability = 50;
       
           // Send data to front-end i.e. home.ejs
           io.emit("parkingData", {
